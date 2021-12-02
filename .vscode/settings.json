@@ -1,6 +1,0 @@
-{
-  "vue3snippets.enable-compile-vue-file-on-did-save-code": true,
-  "jumpToAliasFile.alias": {
-    "@": "d:\\smart-contact\\projects\\vite-landing-template\\src"
-  }
-}

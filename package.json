@@ -6,7 +6,7 @@
     "build": "vite build",
     "serve": "vite preview",
     "lint": "eslint --fix",
-    "test": "cypress open-ct"
+    "test:components": "cypress open-ct"
   },
   "dependencies": {
     "@smart-contact/smartify": "^0.20.0",

@@ -4,6 +4,7 @@
       class="py-5"
       :left-logo="buyerLogo"
       :right-logo="accountLogos"
+      data-testid="header-brands"
     />
 
     <b-overlay :show="products.loading.value" spinner-variant="primary">
@@ -39,17 +40,19 @@ import { computed, defineComponent, onBeforeMount } from "@vue/composition-api";
 import {
   useProducts,
   useLead,
-  HeaderBrands,
-  Footer,
-  CallMeBackModal,
+  HeaderBrands as SHeaderBrands,
+  // CallMeBackForm as SCallMeBackForm,
+  Footer as SFooter,
+  CallMeBackModal as SCallMeBackModal,
 } from "@smart-contact/smartify";
 
 export default defineComponent({
   name: "App",
   components: {
-    SHeaderBrands: HeaderBrands,
-    SFooter: Footer,
-    SCallMeBackModal: CallMeBackModal,
+    SHeaderBrands,
+    // SCallMeBackForm,
+    SFooter,
+    SCallMeBackModal,
   },
   setup(_, context) {
     const { $landing, $bvModal } = context.root;

@@ -23,7 +23,7 @@
       </template>
     </b-overlay>
 
-    <s-footer class="py-6 text-center">
+    <s-footer class="py-6 text-center" data-testid="footer">
       <span v-html="$landing.params.get('copyFooter')" />
     </s-footer>
 

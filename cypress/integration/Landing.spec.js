@@ -21,4 +21,10 @@ describe("Landing Page", () => {
       }
     );
   });
+
+  it("should populate the footer with text", () => {
+    cy.get('[data-testid="footer"] .footer__content').should(($el) => {
+      expect($el.text().trim()).not.equal("");
+    });
+  });
 });

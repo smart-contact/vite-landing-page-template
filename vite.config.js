@@ -49,7 +49,7 @@ export default defineConfig(({ mode }) => {
   };
 
   if (mode === "production") {
-    config.base = landingConfig.cdnBaseURL;
+    config.base = landingConfig.cdnBaseURL + '/';
     config.build.assetsDir = landingConfig.name;
     config.plugins.push(zip());
   }

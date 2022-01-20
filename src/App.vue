@@ -16,9 +16,10 @@
       </template>
 
       <template v-if="!products.loading.value">
-        <!-- app-hero -->
+        <app-hero />
         <main>
-          <!-- sections -->
+          <app-features />
+          <app-offers />
         </main>
       </template>
     </b-overlay>
@@ -45,6 +46,9 @@ import {
   Footer as SFooter,
   CallMeBackModal as SCallMeBackModal,
 } from "@smart-contact/smartify";
+import AppHero from "@/components/AppHero.vue";
+import AppFeatures from "@/components/AppFeatures.vue";
+import AppOffers from "@/components/AppOffers.vue";
 
 export default defineComponent({
   name: "App",
@@ -53,6 +57,9 @@ export default defineComponent({
     // SCallMeBackForm,
     SFooter,
     SCallMeBackModal,
+    AppHero,
+    AppFeatures,
+    AppOffers,
   },
   setup(_, context) {
     const { $landing, $bvModal } = context.root;

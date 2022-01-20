@@ -19,6 +19,26 @@
     <div id="app"></div>
     
     <script>
+      const activityHandlers = {
+        dem(landing) {
+            let sourceName = landing.params.get('f5');
+            landing.params.set('f12', Date.now().toString());
+
+          switch (landing.params.get('f15')) {
+            case 'chebuoni':
+            case 'chebuonipilot':
+              landing.params.set('f11', landing.url.searchParams.get('aff_id') || '-');
+              landing.params.set('f12', landing.url.searchParams.get('source') || '-');
+              landing.params.set('f13', landing.url.searchParams.get('transaction_id') || '-');
+              landing.params.set('f14', landing.url.searchParams.get('id') || '-');
+              break;
+            case 'bunkerads':
+              const transaction_id = Date.now().toString();
+              landing.params.set('f11', landing.url.searchParams.get('aff_id') || '-');
+              break;
+          }
+        }
+      };
       window.$landingConfig = {
         config: {
           params(){
@@ -56,7 +76,7 @@
 
           data(){
             return{
-              url_landing: this.url.toString(),
+              url_landing: location.origin + location.pathname,
               name: '-',
               surname: '-',
               offer: '-',
@@ -71,6 +91,7 @@
         },
         options: {},
         afterInit(landing){
+          activityHandlers[landing.params.get('f5')](landing);
           if(landing.params.get('useFo')){
             landing.scheduleBetween('21:00:00', '09:00:00', () => {
               landing.data.set('sap', landing.params.get('sap') + '_fo');
@@ -87,23 +108,29 @@
       function setSuccessURLParams (landing){
         if(landing.params.get('successURL')){
           const url = new URL(landing.params.get('successURL'), location.origin);
-
+          const urlParams = Object.fromEntries(new URLSearchParams(location.href.split('?')[1]));
           //inserire qui la mappatura dei parametri della landing sull'url
           const paramsMap = {
-            prov: landing.params.get('f5'),
-            f11:  landing.params.get('f11'),
+            f4: landing.params.get('f4'),
+            f5: landing.params.get('f5'),
+            f11: landing.params.get('f11'),
             f12:  landing.params.get('f12'),
             f13:  landing.params.get('f13'),
             f14:  landing.params.get('f14'),
             f15:  landing.params.get('f15'),
+            pixelId: landing.params.get('f12')
           };
-
-          Object.entries(paramsMap).forEach(([key, value]) => {
-            if(value !== undefined && value !== ''){
-              url.searchParams.append(key, value)    
+          Object.entries(urlParams).forEach(([key, value]) => {
+            if(!paramsMap.hasOwnProperty(key) && value !== undefined && value !== ''){
+              paramsMap[key] = value; 
             }
           });
-
+          Object.entries(paramsMap).forEach(([key, value]) => {
+            if(value !== undefined && value !== ''){
+              url.searchParams.append(key, value);
+            }
+          });
+      
           landing.params.set('successURL', url.toString());
         }
       }

@@ -88,6 +88,12 @@ export default defineComponent({
     const sendLead = async (data = {}) => {
       const { successURL } = $landing.params.get();
       try {
+        window.dataLayer.push({
+          event: "form_submit",
+          eventCategory: "form",
+          eventAction: "submit_ok",
+          eventLabel: "call-back landing",
+        });
         await lead.send(data);
         if (successURL) {
           window.location.href = successURL;

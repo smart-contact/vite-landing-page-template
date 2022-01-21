@@ -5,8 +5,14 @@
 </template>
 
 <script>
+import contents from "@/../contents.js";
 export default {
-  name: "AppHero",
+  name: "AppFeatures",
+  data() {
+    return {
+      offers: contents.features,
+    };
+  },
 };
 </script>
 

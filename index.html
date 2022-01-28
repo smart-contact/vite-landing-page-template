@@ -70,6 +70,7 @@
           }
         },
         options: {},
+        landing.mapParamsToData(['gclid as idorigine', 'sap', 'f5', 'f11', 'f12', 'f13', 'f14', 'f15']);
         afterInit(landing){
           if(landing.params.get('useFo')){
             landing.scheduleBetween('21:00:00', '09:00:00', () => {
@@ -78,7 +79,6 @@
             });
           }
 
-          landing.mapParamsToData(['gclid as idorigine', 'sap', 'f5', 'f11', 'f12', 'f13', 'f14', 'f15']);
           setSuccessURLParams(landing);
         }
       };

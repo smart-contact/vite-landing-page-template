@@ -9,7 +9,7 @@ import App from "./App.vue";
 import "@/assets/scss/index.scss";
 
 new Vue({
-  data() {
+  provide() {
     return {
       callMeBackFormOptions: {
         phoneFieldAttrs: {
@@ -18,6 +18,13 @@ new Vue({
         submitBtnText: "Ti Chiamiamo noi",
         submitBtnVariant: "success",
         submitBtnClasses: "text-uppercase",
+        privaciesOptions: {
+          uncheckedValue: 0,
+          checkedValue: 1,
+          checkAllChildren: true,
+          uncheckAllChildren: true,
+          collapseToggleText: this.$landing.params.get("collapseToggleText"),
+        },
       },
     };
   },

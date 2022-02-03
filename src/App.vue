@@ -25,12 +25,12 @@
     </b-overlay>
 
     <s-footer class="py-6 text-center" data-testid="footer">
-      <span v-html="$landing.params.get('copyFooter')" />
+      <span v-html="landing.params.get('copyFooter')" />
     </s-footer>
 
     <s-call-me-back-modal
       id="call-me-back-modal"
-      :call-me-back-form-options="$root.callMeBackFormOptions"
+      :call-me-back-form-options="callMeBackFormOptions"
       v-on="modalEvents"
     />
   </div>
@@ -41,6 +41,7 @@ import { computed, defineComponent, onBeforeMount } from "@vue/composition-api";
 import {
   useProducts,
   useLead,
+  useLanding,
   HeaderBrands as SHeaderBrands,
   // CallMeBackForm as SCallMeBackForm,
   Footer as SFooter,
@@ -61,12 +62,14 @@ export default defineComponent({
     AppFeatures,
     AppOffers,
   },
+  inject: ['callMeBackFormOptions'],
   setup(_, context) {
-    const { $landing, $bvModal } = context.root;
-    const { logoAccountMobile, logoAccount, account } = $landing.params.get();
+    const { $bvModal } = context.root;
+    const landing = useLanding();
+    const { logoAccountMobile, logoAccount, account } = landing.params.get();
     const products = useProducts();
     const lead = useLead(context, {
-      disableRecaptchaCheck: !$landing.params.get("useRecaptcha"),
+      disableRecaptchaCheck: !landing.params.get("useRecaptcha"),
     });
 
     const accountLogos = [
@@ -93,14 +96,16 @@ export default defineComponent({
     });
 
     const sendLead = async (data = {}) => {
-      const { successURL } = $landing.params.get();
+      const { successURL } = landing.params.get();
       try {
-        window.dataLayer.push({
-          event: "form_submit",
-          eventCategory: "form",
-          eventAction: "submit_ok",
-          eventLabel: "call-back landing",
-        });
+        if(window.dataLayer) {
+            window.dataLayer.push({
+            event: "form_submit",
+            eventCategory: "form",
+            eventAction: "submit_ok",
+            eventLabel: "call-back landing",
+          });
+        }
         await lead.send(data);
         if (successURL) {
           window.location.href = successURL;
@@ -117,18 +122,18 @@ export default defineComponent({
 
     const modalEvents = {
       show: () => {
-        $landing.data.set("buyer", products.selected.value.buyer.name);
-        $landing.data.set("offer", products.selected.value.name);
+        landing.data.set("buyer", products.selected.value.buyer.name);
+        landing.data.set("offer", products.selected.value.name);
       },
       hide: () => {
-        $landing.data.restoreDefaults();
+        landing.data.restoreDefaults();
       },
     };
 
     onBeforeMount(() => {
       products.load({
-        // collection: $landing.params.get('collection'),
-        productsIds: $landing.params.get("products"),
+        // collection: landing.params.get('collection'),
+        productsIds: landing.params.get("products"),
       });
     });
 
@@ -137,6 +142,7 @@ export default defineComponent({
       accountLogos,
       buyerLogo,
       lead,
+      landing,
       sendLead,
       onProductSelected,
       modalEvents,

@@ -7,6 +7,7 @@
 <script>
 export default {
   name: "AppHero",
+  inject: ["callMeBackFormOptions"],
 };
 </script>
 

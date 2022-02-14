@@ -67,6 +67,7 @@ export default defineComponent({
     return {
       params: this.landing.params.get(),
       onProductSelected: this.onProductSelected,
+      sendLead: this.sendLead,
     };
   },
   setup(_, context) {

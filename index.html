@@ -50,7 +50,7 @@
               sap: { value: '{{ sap }}', default: '' },
               successURL: '{{ successURL }}',
               collapseToggleText: '{{ collapseToggleText }}',
-              useRecaptcha: '{{ useRecaptcha }}',
+              useRecaptcha: { value: '{{ useRecaptcha }}', default: "0", parser: value => !!Number(value)},
               account: { value: '{{ account }}', default: 'prezzogiusto' },
               logoAccount: { value: '{{ accountLogo }}', default: 'logo-prezzogiusto.svg' },
               logoAccountMobile: { value: '{{ accountLogoMobile }}', default: 'logo-prezzogiusto-small.png' },

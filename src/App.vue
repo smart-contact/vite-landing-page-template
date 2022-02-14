@@ -125,13 +125,11 @@ export default defineComponent({
         if (products.selected.value != undefined) {
           landing.data.set("buyer", products.selected.value.buyer.name);
           landing.data.set("offer", products.selected.value.name);
-          console.log(products);
         }
       },
       hide: () => {
         landing.data.restoreDefaults();
         products.setSelectedIndex(undefined);
-        console.log(products);
       },
     };
 

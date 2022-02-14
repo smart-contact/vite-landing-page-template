@@ -63,12 +63,18 @@ export default defineComponent({
     AppOffers,
   },
   inject: ['callMeBackFormOptions'],
+  provide() {
+    return {
+      params: this.landing.params.get(),
+      onProductSelected: this.onProductSelected,
+    };
+  },
   setup(_, context) {
     const { $bvModal } = context.root;
     const landing = useLanding();
     const { logoAccountMobile, logoAccount, account } = landing.params.get();
     const products = useProducts();
-    const lead = useLead(context, {
+    const lead = useLead({
       disableRecaptchaCheck: !landing.params.get("useRecaptcha"),
     });
 

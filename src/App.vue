@@ -55,6 +55,12 @@ export default defineComponent({
     SFooter,
     SCallMeBackModal,
   },
+  provide() {
+    return {
+      params: this.landing.params.get(),
+      onProductSelected: this.onProductSelected
+    };
+  },
   inject: ['callMeBackFormOptions'],
   setup(_, context) {
     const { $bvModal } = context.root;

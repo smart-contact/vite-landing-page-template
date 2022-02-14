@@ -127,13 +127,16 @@ export default defineComponent({
       $bvModal.show("call-me-back-modal");
     };
 
-    const modalEvents = {
+     const modalEvents = {
       show: () => {
-        landing.data.set("buyer", products.selected.value.buyer.name);
-        landing.data.set("offer", products.selected.value.name);
+        if (products.selected.value != undefined) {
+          landing.data.set("buyer", products.selected.value.buyer.name);
+          landing.data.set("offer", products.selected.value.name);
+        }
       },
       hide: () => {
         landing.data.restoreDefaults();
+        products.setSelectedIndex(undefined);
       },
     };
 

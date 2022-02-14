@@ -38,7 +38,12 @@ $danger: $red !default;
 $light: $gray-100 !default;
 $dark: $gray-800 !default;
 
-$theme-colors: () !default;
+$theme-colors: (
+  "luce": green,
+  "luce-alt": white,
+  "gas": blue,
+  "gas-alt": white
+);
 
 // Set a specific jump point for requesting color jumps
 $theme-color-interval: 8% !default;

@@ -58,7 +58,8 @@ export default defineComponent({
   provide() {
     return {
       params: this.landing.params.get(),
-      onProductSelected: this.onProductSelected
+      onProductSelected: this.onProductSelected,
+      sendLead: this.sendLead,
     };
   },
   inject: ['callMeBackFormOptions'],

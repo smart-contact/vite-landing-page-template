@@ -5,7 +5,7 @@
         <div class="h4 text-uppercase" v-html="offerBar.title"></div>
         <div class="small" v-html="offerBar.text"></div>
       </div>
-      <b-button>VERIFICA E ATTIVA</b-button>
+      <b-button @click="onButtonClick('openModal')">VERIFICA E ATTIVA</b-button>
     </div>
   </section>
 </template>
@@ -17,7 +17,20 @@ export default {
   data() {
     return {
       offerBar: contents.offerBar,
+      redirectURL: contents.redirectURLS.base,
     };
+  },
+  methods: {
+    onButtonClick(option) {
+      switch (option) {
+        case "openModal":
+          this.$emit("openModal");
+          break;
+        case "redirectSelf":
+          this.$emit("redirectSelf", this.redirectURL);
+          break;
+      }
+    },
   },
 };
 </script>

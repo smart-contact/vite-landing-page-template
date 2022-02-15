@@ -1,4 +1,7 @@
 export default {
+  redirectURLS: {
+    base: "https://google.com",
+  },
   ookla: {
     title:
       "SCEGLI PER LA TUA CASA LA RETE FISSA PIU' VELOCE D’ ITALIA* SECONDO OOKLA®!",

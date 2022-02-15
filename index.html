@@ -8,13 +8,113 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="icon" type="image/png" sizes="32x32" href="https://smart-contact-cdn.livelanding.it/images/favicon-{{ account }}.png">
     <title>Offerte Tiscali</title>
+<!--
+     
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-677013195"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-     <!-- @{{ GoogleGlobalSiteTag }} -->
+    gtag('config', 'AW-677013195');
+      function gtag_report_conversion(url){
+          gtag('event', 'conversion', {
+            'send_to': 'AW-677013195/HR5fCMbKosMBEMvN6cIC',
+            'event_callback': function(){
+              if(url) window.location = url
+            }
+          });
+          return false;
+        }
+  </script>
 
-    <!-- @{{ GoogleTagManagerHead }} -->
+ 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43040245-38"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-43040245-38');
+  </script>
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KMVNGQ7');</script>
+
+<script type="text/javascript" src="https://casa.tiscali.it/inc/script/webtrekk/webtrekk_v4.min.js"></script>
+
+    
+<script type="text/javascript">
+
+   function getContentIdByURL() {
+      try {
+         var url = document.location.href;
+         var anchor_value = '';
+         var split_anchors = '';
+         if (url && url !== null) {
+            split_anchors = url.split("#");
+            if (split_anchors && split_anchors !== null)
+               if (split_anchors.length > 1)
+                  anchor_value = '#' + url.split("#")[1].toLowerCase();
+            url = url.split("#")[0].toLowerCase();
+            return url.split("?")[0].toLowerCase() + anchor_value;
+         }
+         return "no_content";
+      } catch (err) {
+         console.log('WTK - an error was encountered while cleaning up the URL, tracking document.location.href instead.\n' + err);
+         return document.location.href;
+      }
+   }
+   var pageConfig = {
+      linkTrack: "",
+      heatmap: "",
+      form: "",
+      contentId: getContentIdByURL()
+   };
+   /* Account 630058339171838 */
+   var wt = new webtrekkV3(pageConfig);
+   wt.contentGroup = {
+      1: "Abbonati"
+   };
+   wt.customParameter = {
+      1: document.title,
+      3: "Casa",
+      4: window.location.href,
+      14: (function(cookie){return (cookie ? cookie[2] : 0);}(document.cookie.match(/(;|\s|\b)nome_contenuto=(\d)+/))),
+   };
+   
+   /* HP TEST */
+      wt.customSessionParameter = { 
+    2: ""
+   }; 
+    
+   
+      wt.sendinfo();
+      /* Account 245406294797569 */
+      var wtEdit = new webtrekkV3(pageConfig);
+      wtEdit.trackId = "245406294797569";
+      wtEdit.contentGroup = {
+         1: "TISCALI.IT",
+         2: "TISCALI ABBONAMENTI",
+         3: "TISCALI ABBONAMENTI - CASA"
+      };
+      
+      wtEdit.customParameter = {
+      10 : "false", 
+      11 : "false" 
+};
+      wtEdit.sendinfo();
+
+</script> -->
   </head>
   <body>
-    <!-- @{{ GoogleTagManagerBody }} -->
+    <!-- Google Tag Manager (noscript) 
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMVNGQ7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  End Google Tag Manager (noscript) -->
     
     <div id="app"></div>
     

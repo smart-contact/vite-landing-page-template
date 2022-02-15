@@ -23,7 +23,11 @@
         />
         <main>
           <!-- sections -->
-          <app-offer-bar></app-offer-bar>
+          <app-offer-bar
+            @openModal="$bvModal.show('call-me-back-modal')"
+            @redirectSelf="redirectSelf"
+          ></app-offer-bar>
+          <app-offers :products="products.items.value"></app-offers>
         </main>
       </template>
     </b-overlay>
@@ -69,6 +73,7 @@ import {
 import AppHero from "./components/AppHero.vue";
 import OverlayLoadingScreen from "./components/OverlayLoadingScreen.vue";
 import AppOfferBar from "./components/AppOfferBar.vue";
+import AppOffers from "./components/AppOffers.vue";
 
 export default defineComponent({
   name: "App",
@@ -80,6 +85,7 @@ export default defineComponent({
     SCallMeBackModal,
     OverlayLoadingScreen,
     AppOfferBar,
+    AppOffers,
   },
   provide() {
     return {
@@ -133,6 +139,10 @@ export default defineComponent({
       }
     };
 
+    const redirectSelf = (url) => {
+      window.gtag_report_conversion && window.gtag_report_conversion(url);
+    };
+
     const onProductSelected = (productIndex) => {
       products.setSelectedIndex(productIndex);
       $bvModal.show("call-me-back-modal");
@@ -152,10 +162,29 @@ export default defineComponent({
     };
 
     onBeforeMount(() => {
-      products.load({
-        // collection: landing.params.get('collection'),
-        productsIds: landing.params.get("products"),
-      });
+      products
+        .load({
+          // collection: landing.params.get('collection'),
+          productsIds: landing.params.get("products"),
+        })
+        .then(() => {
+          products.setSelectedIndex(0);
+
+          //modify product name. Removes "full" or "open" from name.
+          products.items.value[0].name = products.items.value[0].name.replace(
+            /(open|full)$/i,
+            ""
+          );
+
+          landing.data.set(
+            "offer",
+            [
+              products.selected.value.name,
+              products.selected.value.prices.default.value,
+              products.selected.value.prices.default.invoiceUnit,
+            ].join(" ")
+          );
+        });
     });
 
     return {
@@ -167,6 +196,7 @@ export default defineComponent({
       sendLead,
       onProductSelected,
       modalEvents,
+      redirectSelf,
     };
   },
 });

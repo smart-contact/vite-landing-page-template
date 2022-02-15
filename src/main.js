@@ -3,10 +3,12 @@ import Vue from "vue";
 import "@/plugins/index.js";
 import "@/plugins/bootstrap-vue.js";
 import "@/plugins/smartland.js";
+import "@/plugins/smartify.js";
 // import "@/components/index.js";
 import App from "./App.vue";
 
 import "@/assets/scss/index.scss";
+import "@/assets/scss/vendors/smartify/_index.scss";
 
 new Vue({
   provide() {

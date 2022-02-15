@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@smart-contact/smartify": "^0.22.1",
+    "@smart-contact/smartland-plugin-cookies": "^0.1.0",
     "@smart-contact/smartland": "^3.1.0",
     "@smart-contact/smartland-plugin-scheduler": "^1.0.7",
     "@smart-contact/smartland-plugin-smart-bridge": "^1.0.0",

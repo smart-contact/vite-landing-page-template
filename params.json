@@ -1,16 +1,9 @@
 {
-  "collection": "offerte-eni-comparazione-landing",
-  "productsId": "1, 2",
-  "useRecaptcha": 0,
-  "account": "prezzogiusto",
-  "accountLogoMobile": "logo-prezzogiusto-small.png",
-  "accountLogo": "logo-prezzogiusto.svg",
-  "smartBridgeSourceID": "37b26e7d-9afe-495d-946a-47a5a61862f4",
-  "copyTitle": "Lorem Ipsum",
-  "copyTitleMobile": "Lorem Ipsum bla bla",
-  "copyFooter": "©PREZZOGIUSTO è un servizio SMART CONTACT SRL P.IVA 03692630928",
-  "privacy_1": "Richiedendo il servizio confermo di aver letto e accettato i <a href=https://www.prezzogiusto.com/termini-e-condizioni target=blank> Termini e Condizioni del Sito</a> e di aver preso visione dell'<a href=https://www.prezzogiusto.com/privacy/ target=blank> Informativa sul trattamento dei dati personali</a>. Non tutti i consensi sono obbligatori,",
-  "privacy_2": "Confermo di dare il consenso al trattamento dei miei dati personali per le finalità di marketing di Smart Contact tramite telefonate automatizzate e modalità assimilate, quali e-mail, sms, mms, notifiche push, social media, nonché modalità tradizionali come posta cartacea e telefonate con operatore ai sensi del par. 2.2 (d) dell'Informativa (facoltativo).",
-  "privacy_3": "Confermo di dare il consenso al trattamento dei miei dati personali per le finalità di profilazione ai sensi del par. 2.2 (e) dell'Informativa (facoltativo).",
-  "privacy_4": "Confermo di dare il consenso al trattamento dei miei dati personali per la comunicazione a terzi per finalità di marketing tramite telefonate automatizzate e modalità assimilate, quali e-mail, sms, mms, notifiche push, social media, nonché modalità tradizionali come posta cartacea e telefonate con operatore ai sensi del par. 2.2 (f) dell'Informativa. (facoltativo)."
+  "smartBridgeSourceID": "d6137628-91b3-441e-a41a-fe16ecb02f3b",
+  "retailerCode": "DM20000A00000",
+  "partnerName": "smartcontact",
+  "prod": "Ultrainternet_fibra",
+  "products": "681",
+  "copyFooter": "Tutte le offerte sono attivabili solo con modalità di pagamento RID o Carta di Credito. <br> Le promozioni sono riservate alle nuove attivazioni. © 2021 Tiscali Italia S.p.A. - Partita IVA 02508100928 - R.E.A.: 204250",
+  "privacy": "Letta l'informativa sulla privacy ai sensi del D.lgs.196/03 e del Regolamento (UE) 679/2016 (GDPR) cliccando su \"invia\" dò il consenso al trattamento dei dati personali per essere ricontattato al fine di ottenere informazioni commerciali in merito al presente servizio di Tiscali."
 }

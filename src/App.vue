@@ -3,22 +3,27 @@
     <s-header-brands
       class="py-5"
       :left-logo="buyerLogo"
-      :right-logo="accountLogos"
       data-testid="header-brands"
     />
 
     <b-overlay :show="products.loading.value" spinner-variant="primary">
       <template #overlay="{ spinnerVariant }">
         <overlay-loading-screen
-          :logo="accountLogos[0]"
+          :logo="buyerLogo"
           :spinner-variant="spinnerVariant"
         />
       </template>
 
       <template v-if="!products.loading.value">
         <!-- app-hero -->
+        <app-hero
+          :product="products.items.value[0]"
+          :call-me-back-form-options="callMeBackFormOptions"
+          @submit="sendLead"
+        />
         <main>
           <!-- sections -->
+          <app-offer-bar></app-offer-bar>
         </main>
       </template>
     </b-overlay>
@@ -29,9 +34,24 @@
 
     <s-call-me-back-modal
       id="call-me-back-modal"
-      :call-me-back-form-options="callMeBackFormOptions"
-      v-on="modalEvents"
-    />
+      :cmb-form-loading="lead.sending.value"
+      subtitle="un consulente ti contatterà per fornirti tutte le informazioni necessarie gratis"
+      :callMeBackFormOptions="{
+        ...callMeBackFormOptions,
+        'submit-btn-variant': 'secondary',
+        'submit-btn-text': 'TI CHIAMIAMO NOI',
+      }"
+      @submit="sendLead"
+    >
+      <template #title>
+        <h2>{{ products.selected.value.name }}</h2>
+        <h4>Richiedi maggiori informazioni</h4>
+      </template>
+
+      <template #subtitle>
+        Sarai richiamato <b>GRATIS</b> e senza impegno
+      </template>
+    </s-call-me-back-modal>
   </div>
 </template>
 
@@ -46,14 +66,20 @@ import {
   Footer as SFooter,
   CallMeBackModal as SCallMeBackModal,
 } from "@smart-contact/smartify";
+import AppHero from "./components/AppHero.vue";
+import OverlayLoadingScreen from "./components/OverlayLoadingScreen.vue";
+import AppOfferBar from "./components/AppOfferBar.vue";
 
 export default defineComponent({
   name: "App",
   components: {
+    AppHero,
     SHeaderBrands,
     // SCallMeBackForm,
     SFooter,
     SCallMeBackModal,
+    OverlayLoadingScreen,
+    AppOfferBar,
   },
   provide() {
     return {
@@ -62,7 +88,7 @@ export default defineComponent({
       sendLead: this.sendLead,
     };
   },
-  inject: ['callMeBackFormOptions'],
+  inject: ["callMeBackFormOptions"],
   setup(_, context) {
     const { $bvModal } = context.root;
     const landing = useLanding();
@@ -98,14 +124,6 @@ export default defineComponent({
     const sendLead = async (data = {}) => {
       const { successURL } = landing.params.get();
       try {
-        if(window.dataLayer) {
-          window.dataLayer.push({
-            event: "form_submit",
-            eventCategory: "form",
-            eventAction: "submit_ok",
-            eventLabel: "call-back landing",
-          });
-        }
         await lead.send(data);
         if (successURL) {
           window.location.href = successURL;
@@ -120,7 +138,7 @@ export default defineComponent({
       $bvModal.show("call-me-back-modal");
     };
 
-     const modalEvents = {
+    const modalEvents = {
       show: () => {
         if (products.selected.value != undefined) {
           landing.data.set("buyer", products.selected.value.buyer.name);
@@ -163,5 +181,9 @@ export default defineComponent({
       width: 100%;
     }
   }
+}
+#call-me-back-modal.modal .modal-content {
+  color: $white;
+  background-color: theme-color("primary");
 }
 </style>

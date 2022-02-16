@@ -1,4 +1,4 @@
-<template >
+<template>
   <section class="ookla-banner">
     <div class="container d-flex align-items-center gap-4 pl-sm-0">
       <div class="ookla-banner__badge">
@@ -8,9 +8,17 @@
           class="img-h-contain"
         />
       </div>
-      <div class="ookla-banner__content d-flex flex-column justify-content-center text-center py-6 px-md-8">
-        <div class="ookla-banner__content__title h6 text-primary text-uppercase" v-html="ookla.title"></div>
-        <div class="ookla-banner__content__description d-none d-md-block px-8 mb-0" v-html="ookla.description"></div>
+      <div
+        class="ookla-banner__content d-flex flex-column justify-content-center text-center py-6 px-md-8"
+      >
+        <div
+          class="ookla-banner__content__title h6 text-primary text-uppercase"
+          v-html="ookla.title"
+        ></div>
+        <div
+          class="ookla-banner__content__description d-none d-md-block px-8 mb-0"
+          v-html="ookla.description"
+        ></div>
       </div>
     </div>
   </section>
@@ -18,26 +26,27 @@
 
 <script>
 import { defineComponent } from "@vue/composition-api";
-import contents from "@/../contents.js"
+import contents from "@/../contents.js";
 export default defineComponent({
   name: "AppOoklaBanner",
   data() {
     return {
       ookla: contents.ookla,
-    }
-  }
+    };
+  },
 });
 </script>
 
 <style lang="scss">
 .ookla-banner {
-  &__badge, &__content {
+  &__badge,
+  &__content {
     height: 12rem;
   }
 
   &__content {
     font-size: 1.6rem;
-    background-color: #F8F8F8;
+    background-color: #f8f8f8;
     &__description {
       color: #525252;
       font-size: 1.4rem;

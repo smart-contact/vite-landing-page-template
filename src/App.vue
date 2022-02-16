@@ -16,17 +16,13 @@
 
       <template v-if="!products.loading.value">
         <!-- app-hero -->
-        <app-hero
+        <!-- <app-hero
           :product="products.items.value[0]"
           :call-me-back-form-options="callMeBackFormOptions"
           @submit="sendLead"
-        />
+        /> -->
         <main>
           <!-- sections -->
-          <app-offer-bar
-            @openModal="$bvModal.show('call-me-back-modal')"
-            @redirectSelf="redirectSelf"
-          ></app-offer-bar>
           <app-offers :products="products.items.value"></app-offers>
         </main>
       </template>
@@ -70,21 +66,17 @@ import {
   Footer as SFooter,
   CallMeBackModal as SCallMeBackModal,
 } from "@smart-contact/smartify";
-import AppHero from "./components/AppHero.vue";
 import OverlayLoadingScreen from "./components/OverlayLoadingScreen.vue";
-import AppOfferBar from "./components/AppOfferBar.vue";
 import AppOffers from "./components/AppOffers.vue";
 
 export default defineComponent({
   name: "App",
   components: {
-    AppHero,
     SHeaderBrands,
     // SCallMeBackForm,
     SFooter,
     SCallMeBackModal,
     OverlayLoadingScreen,
-    AppOfferBar,
     AppOffers,
   },
   provide() {

@@ -1,11 +1,15 @@
 <template>
-  <div class="offers">
-    <offer-box
-      v-for="(product, i) in products"
-      :key="i"
-      :product="product"
-    ></offer-box>
-  </div>
+  <section class="offers py-4">
+    <div
+      class="container offers d-flex flex-column flex-md-row justify-content-md-center gap-10"
+    >
+      <offer-box
+        :product="products[0]"
+        :product_convergenza="products[2]"
+      ></offer-box>
+      <offer-box :product="products[1]"></offer-box>
+    </div>
+  </section>
 </template>
 <script>
 import OfferBox from "@/components/OfferBox.vue";

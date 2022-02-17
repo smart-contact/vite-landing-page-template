@@ -31,6 +31,9 @@
     <s-call-me-back-modal
       id="call-me-back-modal"
       :call-me-back-form-options="callMeBackFormOptions"
+      title="Vuoi avere maggiori informazioni su questa offerta?"
+      subtitle="Un consulente ti contatterà per fornirti tutte le informazioni necessarie gratis"
+      @submit="sendLead"
       v-on="modalEvents"
     />
   </div>
@@ -50,6 +53,7 @@ import {
 import AppHero from "@/components/AppHero.vue";
 import AppFeatures from "@/components/AppFeatures.vue";
 import AppOffers from "@/components/AppOffers.vue";
+import contents from "@/../contents.js";
 
 export default defineComponent({
   name: "App",
@@ -68,6 +72,12 @@ export default defineComponent({
       params: this.landing.params.get(),
       onProductSelected: this.onProductSelected,
       sendLead: this.sendLead,
+    };
+  },
+  data() {
+    return {
+      offers: contents.offers,
+      offersFeatures: contents.offersFeatures,
     };
   },
   setup(_, context) {
@@ -157,6 +167,17 @@ export default defineComponent({
       onProductSelected,
       modalEvents,
     };
+  },
+    computed: {
+    mappedProducts() {
+      return ["luce", "gas"].map((type, i) => ({
+        name: this.products.items.value[i].name,
+        productIndex: i,
+        ...this.offers[i],
+        type,
+        ...this.products.items.value[i].prices[type],
+      }));
+    },
   },
 });
 </script>

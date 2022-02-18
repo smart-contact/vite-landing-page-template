@@ -46,6 +46,7 @@ import {
   Footer as SFooter,
   CallMeBackModal as SCallMeBackModal,
 } from "@smart-contact/smartify";
+import OverlayLoadingScreen from "./components/OverlayLoadingScreen.vue";
 
 export default defineComponent({
   name: "App",
@@ -54,6 +55,7 @@ export default defineComponent({
     // SCallMeBackForm,
     SFooter,
     SCallMeBackModal,
+    OverlayLoadingScreen
   },
   provide() {
     return {

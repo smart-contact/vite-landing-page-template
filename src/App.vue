@@ -54,6 +54,7 @@ import AppHero from "@/components/AppHero.vue";
 import AppFeatures from "@/components/AppFeatures.vue";
 import AppOffers from "@/components/AppOffers.vue";
 import contents from "@/../contents.js";
+import OverlayLoadingScreen from "@/components/OverlayLoadingScreen.vue";
 
 export default defineComponent({
   name: "App",
@@ -65,6 +66,7 @@ export default defineComponent({
     AppHero,
     AppFeatures,
     AppOffers,
+    OverlayLoadingScreen,
   },
   inject: ['callMeBackFormOptions'],
   provide() {

@@ -20,6 +20,7 @@ export default defineConfig(({ mode }) => {
       LIVELANDING_CDN_JS_BASE_URL: `"${landingConfig.cdnBaseURL}/js"`,
       LIVELANDING_CDN_STYLES_BASE_URL: `"${landingConfig.cdnBaseURL}/styles"`,
       LIVELANDING_CDN_FILES_BASE_URL: `"${landingConfig.cdnBaseURL}/files"`,
+      "process.env": process.env,
     },
     css: {
       preprocessorOptions: {

@@ -22,7 +22,7 @@
           :call-me-back-form-options="callMeBackFormOptions"
           @submit="sendLead"
         />
-        <main>
+        <main style="background-color: red">
           <!-- sections -->
           <app-offers :products="products.items.value"></app-offers>
           <price-egg :price="products.items.value[0].prices.default" />

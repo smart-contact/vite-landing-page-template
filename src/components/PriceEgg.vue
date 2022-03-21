@@ -1,6 +1,6 @@
 <template>
   <div class="price-egg p-5 position-relative">
-    <div class="price-egg__prices font-weight-bold">
+    <div class="price-egg__prices font-weight-bold text-primary">
       <div class="price-egg__prices__int">{{ price.int }}</div>
       <div class="price-egg__prices__cents">,{{ price.cents }}</div>
       <div class="price-egg__prices__euro">{{ price.currency }}</div>
@@ -48,7 +48,6 @@ export default {
       "int cents"
       "int euro"
       "monthly monthly";
-
     &__int {
       grid-area: int;
       font-size: 2.75em;

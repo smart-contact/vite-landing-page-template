@@ -95,7 +95,12 @@ import { defineComponent } from "@vue/composition-api";
 
 export default defineComponent({
   name: "AppHero",
+
   props: {
+    price: {
+      type: Object,
+      required: true,
+    },
     product: {
       type: Object,
       required: true,

@@ -16,14 +16,16 @@
 
       <template v-if="!products.loading.value">
         <!-- app-hero -->
-        <!-- <app-hero
+        <app-hero
           :product="products.items.value[0]"
+          :price="products.items.value[0].prices.default"
           :call-me-back-form-options="callMeBackFormOptions"
           @submit="sendLead"
-        /> -->
+        />
         <main>
           <!-- sections -->
           <app-offers :products="products.items.value"></app-offers>
+          <price-egg :price="products.items.value[0].prices.default" />
         </main>
       </template>
     </b-overlay>
@@ -68,6 +70,8 @@ import {
 } from "@smart-contact/smartify";
 import OverlayLoadingScreen from "./components/OverlayLoadingScreen.vue";
 import AppOffers from "./components/AppOffers.vue";
+import PriceEgg from "./components/PriceEgg.vue";
+import AppHero from "./components/AppHero.vue";
 
 export default defineComponent({
   name: "App",
@@ -76,8 +80,10 @@ export default defineComponent({
     // SCallMeBackForm,
     SFooter,
     SCallMeBackModal,
+    AppHero,
     OverlayLoadingScreen,
     AppOffers,
+    PriceEgg,
   },
   provide() {
     return {

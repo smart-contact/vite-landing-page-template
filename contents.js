@@ -12,22 +12,4 @@ export default {
     title: "VUOI SAPERNE DI PIÙ?",
     text: "Verifica la copertura e attiva l’offerta",
   },
-
-  properties: [
-    {
-      icon: "icon-1",
-      title: "titolo 1",
-      text: "lorem ipsum",
-    },
-    {
-      icon: "icon-2",
-      title: "titolo 2",
-      text: "lorem ipsum",
-    },
-    {
-      icon: "icon-3",
-      title: "titolo 3",
-      text: "lorem ipsum",
-    },
-  ],
 };

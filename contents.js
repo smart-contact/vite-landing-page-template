@@ -23,12 +23,13 @@ export default {
     {
       icon: "icon-property-card2",
       title:
-        "Il servizio puo' essere <br class='d-md-block d-none'> attivato anche senza linea fissa",
+        "Il servizio puo' essere <br class='d-md-block d-none'>  attivato anche senza linea fissa",
       text: "lorem ipsum",
     },
     {
       icon: "icon-property-card3",
-      title: "Modem Tiscali Wi-Fi<br class='d-md-block d-none'> Indoor incluso",
+      title:
+        "Modem Tiscali Wi-Fi<br class='d-md-block d-none'>  Indoor incluso",
       text: "lorem ipsum",
     },
   ],

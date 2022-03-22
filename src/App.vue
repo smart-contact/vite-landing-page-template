@@ -23,7 +23,9 @@
         />
         <main class="container border p-0 py-5">
           <!-- sections -->
-          <app-offer-bar @openModal=""></app-offer-bar>
+          <app-offer-bar
+            v-if="this.breakpoints.greater('md').value"
+          ></app-offer-bar>
           <app-offers :products="products.items.value"></app-offers>
           <app-ookla-banner></app-ookla-banner>
         </main>

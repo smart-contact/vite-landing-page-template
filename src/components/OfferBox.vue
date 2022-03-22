@@ -83,7 +83,7 @@ export default {
 </script>
 <style lang="scss">
 .offer-box {
-  flex: 1 0 20rem;
+  flex: 1 0 35rem;
   font-size: 2rem;
   &__content {
     &__features {

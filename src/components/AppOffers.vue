@@ -1,5 +1,5 @@
 <template>
-  <section class="offers px-8 py-4">
+  <section class="offers px-md-8 py-4">
     <div
       class="container offers d-flex flex-column flex-md-row justify-content-md-center gap-10"
     >

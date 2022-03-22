@@ -7,12 +7,10 @@ import "@/plugins/smartland.js";
 import App from "./App.vue";
 
 import "@/assets/scss/index.scss";
-import { breakpointsBootstrapV5, useBreakpoints } from "@vueuse/core";
 
 new Vue({
   provide() {
     return {
-      breakpoints: useBreakpoints(breakpointsBootstrapV5),
       callMeBackFormOptions: {
         phoneFieldAttrs: {
           placeholder: "Inserisci il tuo numero di cellulare",

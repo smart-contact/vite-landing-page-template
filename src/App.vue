@@ -56,7 +56,7 @@ export default defineComponent({
     // SCallMeBackForm,
     SFooter,
     SCallMeBackModal,
-    OverlayLoadingScreen
+    OverlayLoadingScreen,
   },
   provide() {
     return {
@@ -68,7 +68,7 @@ export default defineComponent({
       sendLead: this.sendLead,
     };
   },
-  inject: ['callMeBackFormOptions'],
+  inject: ["callMeBackFormOptions"],
   setup(_, context) {
     const { $bvModal } = context.root;
     const landing = useLanding();
@@ -77,7 +77,7 @@ export default defineComponent({
     const lead = useLead({
       disableRecaptchaCheck: !landing.params.get("useRecaptcha"),
     });
-    
+
     const breakpoints = useBreakpoints(breakpointsBootstrapV5);
     const accountLogos = [
       {
@@ -105,7 +105,7 @@ export default defineComponent({
     const sendLead = async (data = {}) => {
       const { successURL } = landing.params.get();
       try {
-        if(window.dataLayer) {
+        if (window.dataLayer) {
           window.dataLayer.push({
             event: "form_submit",
             eventCategory: "form",
@@ -127,7 +127,7 @@ export default defineComponent({
       $bvModal.show("call-me-back-modal");
     };
 
-     const modalEvents = {
+    const modalEvents = {
       show: () => {
         if (products.selected.value != undefined) {
           landing.data.set("buyer", products.selected.value.buyer.name);

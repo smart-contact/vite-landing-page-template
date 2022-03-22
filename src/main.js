@@ -9,10 +9,12 @@ import App from "./App.vue";
 
 import "@/assets/scss/index.scss";
 import "@/assets/scss/vendors/smartify/_index.scss";
+import { breakpointsBootstrapV5, useBreakpoints } from "@vueuse/core";
 
 new Vue({
   provide() {
     return {
+      breakpoints: useBreakpoints(breakpointsBootstrapV5),
       callMeBackFormOptions: {
         phoneFieldAttrs: {
           placeholder: "Inserisci il tuo numero di cellulare",

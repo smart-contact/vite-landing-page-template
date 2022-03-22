@@ -59,6 +59,7 @@
 
 <script>
 import { computed, defineComponent, onBeforeMount } from "@vue/composition-api";
+import { breakpointsBootstrapV5, useBreakpoints } from "@vueuse/core";
 import {
   useProducts,
   useLead,
@@ -89,6 +90,9 @@ export default defineComponent({
   },
   provide() {
     return {
+      isMobile: this.breakpoints.smaller("md"),
+      isTablet: this.breakpoints.greater("sm"),
+      isDesk: this.breakpoints.greater("md"),
       params: this.landing.params.get(),
       onProductSelected: this.onProductSelected,
       sendLead: this.sendLead,
@@ -104,6 +108,7 @@ export default defineComponent({
       disableRecaptchaCheck: !landing.params.get("useRecaptcha"),
     });
 
+    const breakpoints = useBreakpoints(breakpointsBootstrapV5);
     const accountLogos = [
       {
         src: `${LIVELANDING_CDN_IMAGES_BASE_URL}/${logoAccount}`,
@@ -189,6 +194,7 @@ export default defineComponent({
 
     return {
       products,
+      breakpoints,
       accountLogos,
       buyerLogo,
       lead,

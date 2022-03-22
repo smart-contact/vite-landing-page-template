@@ -1,12 +1,14 @@
 <template>
-  <div class="property text-center">
-    <div class="feature-card__icon">
+  <div
+    class="property text-center d-flex flex-md-column align-items-center justify-md-content-between"
+  >
+    <div class="property__icon mx-md-auto">
       <img :src="getImageUrl()" class="img-contain" />
     </div>
-    <div class="text-primary text-uppercase h6" v-html="property.title"></div>
-    <div>
-      {{ property.text }}
-    </div>
+    <div
+      class="property__title text-primary font-weight-bold"
+      v-html="property.title"
+    ></div>
   </div>
 </template>
 
@@ -29,4 +31,14 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+$icon-size: 15rem;
+.property {
+  &__icon {
+    width: $icon-size;
+  }
+  &__title {
+    font-size: 1.5rem;
+  }
+}
+</style>

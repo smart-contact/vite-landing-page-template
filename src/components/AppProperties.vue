@@ -1,7 +1,9 @@
 <template>
   <section class="properties py-6">
     <div class="container">
-      <div class="properties__content d-flex flex-column flex-md-row gap-4">
+      <div
+        class="properties__content d-flex flex-column justify-content-between flex-md-row gap-4"
+      >
         <property-card
           v-for="(property, i) in properties"
           :key="i"

@@ -25,6 +25,7 @@
           <!-- sections -->
           <app-offers :products="products.items.value"></app-offers>
           <app-properties />
+
           <!-- <price-egg :price="products.items.value[0].prices.default" /> -->
         </main>
       </template>
@@ -86,7 +87,6 @@ export default defineComponent({
     OverlayLoadingScreen,
     AppOffers,
     AppProperties,
-    // PriceEgg,
   },
   provide() {
     return {

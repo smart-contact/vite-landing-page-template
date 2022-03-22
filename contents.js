@@ -2,6 +2,7 @@ export default {
   redirectURLS: {
     base: "https://google.com",
   },
+  iframeText: "Offerta soggetta a limiti geografici e tecnologici",
   ookla: {
     title:
       "SCEGLI PER LA TUA CASA LA RETE FISSA PIU' VELOCE D’ ITALIA* SECONDO OOKLA®!",
@@ -15,17 +16,19 @@ export default {
   properties: [
     {
       icon: "icon-property-card1",
-      title: "Internet Illimitato <br> fino a 100 Mega",
+      title:
+        "Internet Illimitato <br class='d-md-block d-none'> fino a 100 Mega",
       text: "lorem ipsum",
     },
     {
       icon: "icon-property-card2",
-      title: "Il servizio puo' essere <br> attivato anche senza linea fissa",
+      title:
+        "Il servizio puo' essere <br class='d-md-block d-none'> attivato anche senza linea fissa",
       text: "lorem ipsum",
     },
     {
       icon: "icon-property-card3",
-      title: "Modem Tiscali Wi-Fi Indoor incluso",
+      title: "Modem Tiscali Wi-Fi<br class='d-md-block d-none'> Indoor incluso",
       text: "lorem ipsum",
     },
   ],

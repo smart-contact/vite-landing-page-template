@@ -27,7 +27,9 @@
             v-if="this.breakpoints.greater('md').value"
           ></app-offer-bar>
           <app-offers :products="products.items.value"></app-offers>
-          <app-ookla-banner></app-ookla-banner>
+          <app-properties />
+
+          <!-- <price-egg :price="products.items.value[0].prices.default" /> -->
         </main>
       </template>
     </b-overlay>
@@ -74,8 +76,7 @@ import {
 import OverlayLoadingScreen from "./components/OverlayLoadingScreen.vue";
 import AppOffers from "./components/AppOffers.vue";
 import AppHero from "./components/AppHero.vue";
-import AppOoklaBanner from "./components/AppOoklaBanner.vue";
-import AppOfferBar from "./components/AppOfferBar.vue";
+import AppProperties from "./components/AppProperties.vue";
 
 export default defineComponent({
   name: "App",
@@ -89,7 +90,7 @@ export default defineComponent({
     AppOfferBar,
     OverlayLoadingScreen,
     AppOffers,
-    // PriceEgg,
+    AppProperties,
   },
   provide() {
     return {

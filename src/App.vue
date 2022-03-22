@@ -25,6 +25,7 @@
           <!-- sections -->
           <app-offers :products="products.items.value"></app-offers>
           <app-properties />
+          <app-ookla-banner></app-ookla-banner>
           <!-- <price-egg :price="products.items.value[0].prices.default" /> -->
         </main>
       </template>
@@ -74,6 +75,7 @@ import AppOffers from "./components/AppOffers.vue";
 // import PriceEgg from "./components/PriceEgg.vue";
 import AppHero from "./components/AppHero.vue";
 import AppProperties from "@/components/AppProperties.vue";
+import AppOoklaBanner from "./components/AppOoklaBanner.vue";
 
 export default defineComponent({
   name: "App",
@@ -86,7 +88,7 @@ export default defineComponent({
     OverlayLoadingScreen,
     AppOffers,
     AppProperties,
-    // PriceEgg,
+    AppOoklaBanner,
   },
   provide() {
     return {
@@ -216,6 +218,10 @@ export default defineComponent({
     div:nth-child(2) {
       width: 100%;
     }
+  }
+
+  .font-size-gotham {
+    font-family: "gotham";
   }
 }
 #call-me-back-modal.modal .modal-content {

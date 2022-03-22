@@ -1,3 +1,4 @@
+w
 <template>
   <section class="ookla-banner">
     <div class="container d-flex align-items-center gap-4 pl-sm-0">
@@ -12,7 +13,7 @@
         class="ookla-banner__content d-flex flex-column justify-content-center text-center py-6 px-md-8"
       >
         <div
-          class="ookla-banner__content__title h6 text-primary text-uppercase"
+          class="ookla-banner__content__title font-weight-bold text-primary text-uppercase"
           v-html="ookla.title"
         ></div>
         <div
@@ -45,11 +46,11 @@ export default defineComponent({
   }
 
   &__content {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     background-color: #f8f8f8;
     &__description {
       color: #525252;
-      font-size: 1.4rem;
+      font-size: 0.8em;
     }
   }
 }

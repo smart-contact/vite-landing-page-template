@@ -24,7 +24,7 @@
           wi-fi gratis
         </div>
         <div
-          class="price-banner__price-glob position-absolute text-secondary font-weight-normal"
+          class="price-banner__price-glob font-size-gotham position-absolute text-secondary font-weight-normal"
         >
           <div class="int">{{ props.product.prices.default.int }}</div>
           <div class="cents text-border-secondary">
@@ -168,7 +168,6 @@ export default defineComponent({
 
       .cents {
         grid-area: cents;
-        color: transparent;
       }
 
       .currency {

@@ -86,8 +86,6 @@ export default defineComponent({
     SFooter,
     SCallMeBackModal,
     AppHero,
-    AppOoklaBanner,
-    AppOfferBar,
     OverlayLoadingScreen,
     AppOffers,
     AppProperties,

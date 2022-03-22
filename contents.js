@@ -12,4 +12,21 @@ export default {
     title: "VUOI SAPERNE DI PIÙ?",
     text: "Verifica la copertura e attiva l’offerta",
   },
+  properties: [
+    {
+      icon: "icon-property-card1",
+      title: "Internet Illimitato <br> fino a 100 Mega",
+      text: "lorem ipsum",
+    },
+    {
+      icon: "icon-property-card2",
+      title: "Il servizio puo' essere <br> attivato anche senza linea fissa",
+      text: "lorem ipsum",
+    },
+    {
+      icon: "icon-property-card3",
+      title: "Modem Tiscali Wi-Fi Indoor incluso",
+      text: "lorem ipsum",
+    },
+  ],
 };

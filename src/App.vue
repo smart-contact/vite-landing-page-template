@@ -24,6 +24,7 @@
         <main>
           <!-- sections -->
           <app-offers :products="products.items.value"></app-offers>
+          <app-properties />
           <!-- <price-egg :price="products.items.value[0].prices.default" /> -->
         </main>
       </template>
@@ -72,6 +73,7 @@ import OverlayLoadingScreen from "./components/OverlayLoadingScreen.vue";
 import AppOffers from "./components/AppOffers.vue";
 // import PriceEgg from "./components/PriceEgg.vue";
 import AppHero from "./components/AppHero.vue";
+import AppProperties from "./components/AppProperties.vue";
 
 export default defineComponent({
   name: "App",
@@ -83,6 +85,7 @@ export default defineComponent({
     AppHero,
     OverlayLoadingScreen,
     AppOffers,
+    AppProperties,
     // PriceEgg,
   },
   provide() {

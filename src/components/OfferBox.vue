@@ -20,7 +20,7 @@
             ></li>
           </ul>
         </div>
-        <div v-if="product_convergenza" class="d-flex align-items-center">
+        <div v-if="product_convergenza" class="d-flex align-items-center w-100">
           <div class="font-weight-bold mr-4" style="font-size: 3em">+</div>
           <card-convergenza :product="product_convergenza" />
         </div>
@@ -35,16 +35,28 @@
         <div class="offer-box__content__prices__euros font-weight-bold">€</div>
         <div class="offer-box__content__prices__monthly">AL MESE</div>
       </div>
-      <b-button v-html="buttonText"></b-button>
+      <b-button
+        v-html="buttonText"
+        @click="onButtonClick('openModal')"
+      ></b-button>
     </div>
   </div>
 </template>
 <script>
 import CardConvergenza from "@/components/CardConvergenza.vue";
+import contents from "@/../contents";
+
 export default {
   name: "OfferBox",
   components: { CardConvergenza },
+  data() {
+    return {
+      redirectURL: contents.redirectURLS.base,
+    };
+  },
+  inject: ["onProductSelected"],
   props: {
+    index: Number,
     product: {
       required: true,
       type: Object,
@@ -53,6 +65,18 @@ export default {
     buttonText: {
       type: String,
       default: "TI CHIAMIAMO NOI",
+    },
+  },
+  methods: {
+    onButtonClick(option) {
+      switch (option) {
+        case "redirectSelf":
+          this.$emit("redirectSelf", this.redirectURL);
+          break;
+        default:
+          this.onProductSelected(this.index);
+          break;
+      }
     },
   },
 };

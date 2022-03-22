@@ -16,7 +16,7 @@
         />
       </div>
       <div>
-        <ul>
+        <ul class="pl-4">
           <li
             v-for="(
               description, i

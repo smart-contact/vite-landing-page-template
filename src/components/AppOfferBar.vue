@@ -14,6 +14,7 @@
 import contents from "@/../contents";
 export default {
   name: "AppOfferBar",
+  inject: ["onProductSelected"],
   data() {
     return {
       offerBar: contents.offerBar,
@@ -23,11 +24,11 @@ export default {
   methods: {
     onButtonClick(option) {
       switch (option) {
-        case "openModal":
-          this.$emit("openModal");
-          break;
         case "redirectSelf":
           this.$emit("redirectSelf", this.redirectURL);
+          break;
+        default:
+          this.$bvModal.show("call-me-back-modal");
           break;
       }
     },

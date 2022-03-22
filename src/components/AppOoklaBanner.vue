@@ -1,7 +1,7 @@
 w
 <template>
   <section class="ookla-banner">
-    <div class="container d-flex align-items-center gap-4 pl-sm-0">
+    <div class="d-flex align-items-center gap-4">
       <div class="ookla-banner__badge">
         <img
           src="@/assets/images/ookla-badge-dark.png"

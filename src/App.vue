@@ -21,10 +21,11 @@
           :call-me-back-form-options="callMeBackFormOptions"
           @submit="sendLead"
         />
-        <main>
+        <main class="container border p-0 py-5">
           <!-- sections -->
+          <app-offer-bar @openModal=""></app-offer-bar>
           <app-offers :products="products.items.value"></app-offers>
-          <!-- <price-egg :price="products.items.value[0].prices.default" /> -->
+          <app-ookla-banner></app-ookla-banner>
         </main>
       </template>
     </b-overlay>
@@ -70,8 +71,9 @@ import {
 } from "@smart-contact/smartify";
 import OverlayLoadingScreen from "./components/OverlayLoadingScreen.vue";
 import AppOffers from "./components/AppOffers.vue";
-// import PriceEgg from "./components/PriceEgg.vue";
 import AppHero from "./components/AppHero.vue";
+import AppOoklaBanner from "./components/AppOoklaBanner.vue";
+import AppOfferBar from "./components/AppOfferBar.vue";
 
 export default defineComponent({
   name: "App",
@@ -81,6 +83,8 @@ export default defineComponent({
     SFooter,
     SCallMeBackModal,
     AppHero,
+    AppOoklaBanner,
+    AppOfferBar,
     OverlayLoadingScreen,
     AppOffers,
     // PriceEgg,

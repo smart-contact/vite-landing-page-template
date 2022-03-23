@@ -1,12 +1,12 @@
 <template>
   <div class="offer-box d-flex flex-column">
     <div
-      class="offer-box__name border border-primary rounded text-center text-primary p-2 mb-2"
+      class="offer-box__name border border-tiscali rounded text-center text-tiscali p-2 mb-2"
     >
       <strong>{{ product.name.replace("Full", "") }}</strong>
     </div>
     <div
-      class="offer-box__content d-flex flex-column flex-grow-1 align-items-center bg-primary text-white rounded p-4 pb-7"
+      class="offer-box__content d-flex flex-column flex-grow-1 align-items-center bg-tiscali text-white rounded p-4 pb-7"
     >
       <div class="offer-box__content__features d-flex">
         <div>

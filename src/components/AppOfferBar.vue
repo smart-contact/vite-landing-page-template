@@ -1,5 +1,5 @@
 <template>
-  <section class="offer-bar bg-primary py-5">
+  <section class="offer-bar bg-tiscali py-5">
     <div class="container d-flex justify-content-between align-items-center">
       <div class="text-white">
         <div class="h4 text-uppercase" v-html="offerBar.title"></div>

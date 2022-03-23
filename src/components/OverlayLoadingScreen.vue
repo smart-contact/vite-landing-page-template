@@ -18,7 +18,7 @@ export default {
     },
     spinnerVariant: {
       type: String,
-      default: "primary",
+      default: "tiscali",
     },
   },
 };

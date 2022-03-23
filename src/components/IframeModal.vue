@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-content-center mt-5 text-primary h6">
+  <div class="d-flex justify-content-center mt-5 text-tiscali h6">
     <a v-b-modal.modal-1>{{ iframeText }}</a>
 
     <b-modal id="modal-1" ok-only ok-title="Chiudi">

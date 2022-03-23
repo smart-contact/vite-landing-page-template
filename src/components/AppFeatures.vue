@@ -37,7 +37,7 @@ export default defineComponent({
   setup() {
     const breakpoints = useBreakpoints(breakpointsBootstrapV5);
     const ctaVariant = computed(() =>
-      breakpoints.smaller("md").value ? "primary" : "secondary"
+      breakpoints.smaller("md").value ? "tiscali" : "secondary"
     );
 
     return {
@@ -59,7 +59,7 @@ export default defineComponent({
     // color: color("white");
 
     // .container {
-    //   background-color: theme-color("primary");
+    //   background-color: theme-color("tiscali");
     // }
 
     .feature-card {

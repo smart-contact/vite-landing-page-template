@@ -6,7 +6,7 @@
       data-testid="header-brands"
     />
 
-    <b-overlay :show="products.loading.value" spinner-variant="primary">
+    <b-overlay :show="products.loading.value" spinner-variant="tiscali">
       <template #overlay="{ spinnerVariant }">
         <overlay-loading-screen
           :logo="buyerLogo"
@@ -226,6 +226,6 @@ export default defineComponent({
 }
 #call-me-back-modal.modal .modal-content {
   color: $white;
-  background-color: theme-color("primary");
+  background-color: theme-color("tiscali");
 }
 </style>

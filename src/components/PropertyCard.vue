@@ -6,7 +6,7 @@
       <img :src="getImageUrl()" class="img-contain" />
     </div>
     <div
-      class="property__title text-primary font-weight-bold"
+      class="property__title text-tiscali font-weight-bold"
       v-html="property.title"
     ></div>
   </div>

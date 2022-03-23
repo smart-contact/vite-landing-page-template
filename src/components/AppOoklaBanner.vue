@@ -13,7 +13,7 @@ w
         class="ookla-banner__content d-flex flex-column justify-content-center text-center py-6 px-md-8"
       >
         <div
-          class="ookla-banner__content__title font-weight-bold text-primary text-uppercase"
+          class="ookla-banner__content__title font-weight-bold text-tiscali text-uppercase"
           v-html="ookla.title"
         ></div>
         <div

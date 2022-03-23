@@ -3,7 +3,7 @@
     class="card-convergenza d-flex flex-column align-items-center bg-white text-dark rounded p-2"
   >
     <div
-      class="card-convergenza__title font-weight-bold text-primary text-uppercase"
+      class="card-convergenza__title font-weight-bold text-tiscali text-uppercase"
     >
       {{ props.product.name }}
     </div>
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div
-      class="card-convergenza__content__prices font-size-gotham text-primary font-weight-bold mt-auto mb-4"
+      class="card-convergenza__content__prices font-size-gotham text-tiscali font-weight-bold mt-auto mb-4"
     >
       <div class="card-convergenza__content__prices__int">
         {{ props.product.prices.default.int }}

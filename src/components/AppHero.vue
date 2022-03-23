@@ -18,7 +18,7 @@
       />
 
       <div class="price-banner font-weight-bold position-relative mt-4 mb-6">
-        <div class="text-primary text-uppercase mb-2">Attivazione inclusa</div>
+        <div class="text-tiscali text-uppercase mb-2">Attivazione inclusa</div>
         <div class="px-3 py-2 price-banner__band text-uppercase text-white">
           E Modem super <br />
           wi-fi gratis

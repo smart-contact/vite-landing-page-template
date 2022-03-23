@@ -1,7 +1,7 @@
 <template>
   <div class="price-egg p-5 position-relative">
     <div
-      class="price-egg__prices font-weight-bold text-tiscali font-size-gotham"
+      class="price-egg__prices font-weight-bold text-tiscali font-family-gotham"
     >
       <div class="price-egg__prices__int">{{ price.int }}</div>
       <div class="price-egg__prices__cents">,{{ price.cents }}</div>

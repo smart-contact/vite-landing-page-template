@@ -220,7 +220,7 @@ export default defineComponent({
     }
   }
 
-  .font-size-gotham {
+  .font-family-gotham {
     font-family: "gotham";
   }
 }

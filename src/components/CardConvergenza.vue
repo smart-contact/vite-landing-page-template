@@ -28,7 +28,7 @@
       </div>
     </div>
     <div
-      class="card-convergenza__content__prices font-size-gotham text-tiscali font-weight-bold mt-auto mb-4"
+      class="card-convergenza__content__prices font-family-gotham text-tiscali font-weight-bold mt-auto mb-4"
     >
       <div class="card-convergenza__content__prices__int">
         {{ props.product.prices.default.int }}

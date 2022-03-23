@@ -25,7 +25,7 @@
           <card-convergenza :product="product_convergenza" />
         </div>
       </div>
-      <div class="offer-box__content__prices font-size-gotham mt-auto mb-4">
+      <div class="offer-box__content__prices font-family-gotham mt-auto mb-4">
         <div class="offer-box__content__prices__int font-weight-bold">
           {{ product.prices.default.int }}
         </div>

@@ -23,20 +23,6 @@
           }"
           @submit="sendLead"
         >
-          <b-button
-            type="submit"
-            size="sm"
-            block
-            :variant="submitBtnVariant"
-            :class="[submitBtnClasses]"
-            class="mt-4 mt-md-0"
-            :disabled="loading"
-          >
-            <b-spinner v-show="loading" :type="spinnerType" />
-
-            {{ submitBtnText }}
-            <div class="small text-uppercase">Solo per nuovi clienti</div>
-          </b-button>
         </s-call-me-back-form>
       </div>
     </div>

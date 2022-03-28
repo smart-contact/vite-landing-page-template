@@ -74,7 +74,8 @@
               f12: { value: this.url.searchParams.get('keyword') || '0' },
               f13: { value: this.url.searchParams.get('matchtype') || '0' },
               f14: { value: this.url.searchParams.get('creative') || '0' },
-              f15: { value: this.url.searchParams.get('f15') || '{{ f15 }}', default: '0' }
+              f15: { value: this.url.searchParams.get('f15') || '{{ f15 }}', default: '0' },
+              f18: { value: this.url.searchParams.get('f18') || '{{ f18 }}', default: '0' }
             }
           },
 
@@ -96,7 +97,7 @@
         options: {},
         afterInit(landing){
           activityHandlers[landing.params.get('f5')](landing);
-          landing.mapParamsToData(['gclid as idorigine', 'sap', 'f5', 'f11', 'f12', 'f13', 'f14', 'f15']);
+          landing.mapParamsToData(['gclid as idorigine', 'sap', 'f5', 'f11', 'f12', 'f13', 'f14', 'f15', 'f18']);
           if(landing.params.get('useFo')){
             landing.scheduleBetween('21:00:00', '09:00:00', () => {
               landing.data.set('sap', landing.params.get('sap') + '_fo');
@@ -122,6 +123,7 @@
             f13:  landing.params.get('f13'),
             f14:  landing.params.get('f14'),
             f15:  landing.params.get('f15'),
+            f18: landing.params.get('f18'),
             pixelId: landing.params.get('f12')
           };
           Object.entries(urlParams).forEach(([key, value]) => {

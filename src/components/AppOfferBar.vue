@@ -14,12 +14,15 @@
 import contents from "@/../contents";
 export default {
   name: "AppOfferBar",
-  inject: ["onProductSelected"],
+  inject: ["onProductSelected", "products"],
   data() {
     return {
       offerBar: contents.offerBar,
       redirectURL: contents.redirectURLS.base,
     };
+  },
+  props: {
+    products: Object,
   },
   methods: {
     onButtonClick(option) {
@@ -28,6 +31,7 @@ export default {
           this.$emit("redirectSelf", this.redirectURL);
           break;
         default:
+          this.products.setSelectedIndex(0);
           this.$bvModal.show("call-me-back-modal");
           break;
       }

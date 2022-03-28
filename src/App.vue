@@ -25,6 +25,7 @@
           <!-- sections -->
           <app-offer-bar
             v-if="this.breakpoints.greater('md').value"
+            :products="products"
           ></app-offer-bar>
           <app-offers :products="products.items.value"></app-offers>
           <app-properties />

@@ -15,7 +15,7 @@
           Richiedi maggiori informazioni
         </div>
 
-        <s-call-me-back-form
+        <call-me-back-form
           layout="horizontal"
           v-bind="{
             ...callMeBackFormOptions,
@@ -23,7 +23,7 @@
           }"
           @submit="sendLead"
         >
-        </s-call-me-back-form>
+        </call-me-back-form>
       </div>
     </div>
   </section>
@@ -31,10 +31,12 @@
 
 <script>
 import { defineComponent } from "@vue/composition-api";
+import CallMeBackForm from "@/components/CallMeBackForm.vue";
 
 export default defineComponent({
   name: "AppHero",
   inject: ["sendLead"],
+  components: { CallMeBackForm },
   props: {
     product: {
       type: Object,

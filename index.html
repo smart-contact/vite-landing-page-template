@@ -54,10 +54,9 @@
               copyFooter: `{{ copyFooter }}`,
 
               //privacy
-              "*privacy_1": `{{ privacy_1 }}`,
-              "&privacy_2": `{{ privacy_2 }}`,
-              "&privacy_3": `{{ privacy_3 }}`,
-              "&privacy_4": `{{ privacy_4 }}`,
+              "*privacy_1": { value: `{{ privacy_1 }}`, default: "Ho preso visione dell’informativa sul trattamento dei dati personali ai sensi degli artt. 13-14 del Reg. UE 2016/679" },
+              "&privacy_2": { value: `{{ privacy_2 }}`, default: "Presto il consenso al trattamento dei dati personali per finalità di marketing diretto" },
+
 
               //tracking
               gclid: this.url.searchParams.get('gclid'),

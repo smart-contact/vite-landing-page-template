@@ -214,7 +214,7 @@ export default defineComponent({
 
 <style lang="scss">
 a {
-  color: currentColor;
+  color: currentColor !important;
 }
 
 #app {

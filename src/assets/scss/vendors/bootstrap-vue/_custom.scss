@@ -715,9 +715,9 @@ $modal-inner-padding:               1.6rem;
 
 // $modal-content-color:               null !default;
 // $modal-content-bg:                  $white !default;
-// $modal-content-border-color:        rgba($black, .2) !default;
+$modal-content-border-color:        #5E59A0;
 // $modal-content-border-width:        $border-width !default;
-// $modal-content-border-radius:       $border-radius-lg !default;
+ $modal-content-border-radius:       $border-radius-lg ;
 // $modal-content-inner-border-radius: subtract($modal-content-border-radius, $modal-content-border-width) !default;
 // $modal-content-box-shadow-xs:       0 .25rem .5rem rgba($black, .5) !default;
 // $modal-content-box-shadow-sm-up:    0 .5rem 1rem rgba($black, .5) !default;

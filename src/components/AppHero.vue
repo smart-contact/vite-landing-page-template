@@ -31,7 +31,7 @@
 
 <script>
 import { defineComponent } from "@vue/composition-api";
-import CallMeBackForm from "@/components/CallMeBackForm.vue";
+import CallMeBackForm from "@/components/CallMeBackFormTiscali.vue";
 
 export default defineComponent({
   name: "AppHero",

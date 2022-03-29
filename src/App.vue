@@ -39,27 +39,15 @@
       <span v-html="landing.params.get('copyFooter')" />
     </s-footer>
 
-    <s-call-me-back-modal
-      id="call-me-back-modal"
-      :cmb-form-loading="lead.sending.value"
-      subtitle="un consulente ti contatterà per fornirti tutte le informazioni necessarie gratis"
-      :callMeBackFormOptions="{
-        ...callMeBackFormOptions,
-        'submit-btn-variant': 'secondary',
-        'submit-btn-text': 'TI CHIAMIAMO NOI',
-      }"
+    <call-me-back-modal-tiscali
+      title="Ultrainternet Fibra"
+      subtitle="Richiedi maggiori informazioni"
+      description="Sarai richiamato <b>GRATIS</b> e senza impegno"
+      id="call-me-back-modal-tiscali"
+      :call-me-back-form-options="callMeBackFormOptions"
       v-on="modalEvents"
       @submit="sendLead"
-    >
-      <template #title>
-        <h2>{{ products.selected.value ? products.selected.value.name : 'Sei interessato all'oggerta?' }}</h2>
-        <h4>Richiedi maggiori informazioni</h4>
-      </template>
-
-      <template #subtitle>
-        Sarai richiamato <b>GRATIS</b> e senza impegno
-      </template>
-    </s-call-me-back-modal>
+    />
   </div>
 </template>
 
@@ -73,8 +61,8 @@ import {
   HeaderBrands as SHeaderBrands,
   // CallMeBackForm as SCallMeBackForm,
   Footer as SFooter,
-  CallMeBackModal as SCallMeBackModal,
 } from "@smart-contact/smartify";
+import CallMeBackModalTiscali from "./components/CallMeBackModalTiscali.vue";
 import OverlayLoadingScreen from "./components/OverlayLoadingScreen.vue";
 import AppOffers from "./components/AppOffers.vue";
 import AppHero from "./components/AppHero.vue";
@@ -83,10 +71,10 @@ import AppProperties from "./components/AppProperties.vue";
 export default defineComponent({
   name: "App",
   components: {
+    CallMeBackModalTiscali
     SHeaderBrands,
     // SCallMeBackForm,
     SFooter,
-    SCallMeBackModal,
     AppHero,
     OverlayLoadingScreen,
     AppOffers,

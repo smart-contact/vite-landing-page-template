@@ -223,10 +223,10 @@ $small-font-size:             .75em;
 //
 // Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
 
-$input-btn-padding-y:         .6rem;
-$input-btn-padding-x:         1.2rem;
+$input-btn-padding-y:         .5rem;
+$input-btn-padding-x:         .2rem;
 // $input-btn-font-family:       null !default;
-$input-btn-font-size:         $font-size-base;
+$input-btn-font-size:         $font-size-base * 0.7;
 // $input-btn-line-height:       $line-height-base !default;
 
 // $input-btn-focus-width:       .2rem !default;
@@ -251,7 +251,7 @@ $input-btn-font-size-sm:      1.6rem;
 // For each of Bootstrap's buttons, define text, background, and border color.
 
 // $btn-padding-y:               $input-btn-padding-y !default;
-$btn-padding-x:               3rem;
+// $btn-padding-x:               3rem;
 // $btn-font-family:             $input-btn-font-family !default;
 // $btn-font-size:               $input-btn-font-size !default;
 // $btn-line-height:             $input-btn-line-height !default;
@@ -292,10 +292,10 @@ $btn-border-radius-sm:        $border-radius-sm;
 
 // $label-margin-bottom:                   .5rem !default;
 
-$input-padding-y:                       1rem;
+// $input-padding-y:                       1rem;
 // $input-padding-x:                       $input-btn-padding-x !default;
 // $input-font-family:                     $input-btn-font-family !default;
-$input-font-size:                       $font-size-base ;
+// $input-font-size:                       $font-size-base ;
 // $input-font-weight:                     $font-weight-base !default;
 // $input-line-height:                     $input-btn-line-height !default;
 

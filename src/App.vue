@@ -48,10 +48,11 @@
         'submit-btn-variant': 'secondary',
         'submit-btn-text': 'TI CHIAMIAMO NOI',
       }"
+      v-on="modalEvents"
       @submit="sendLead"
     >
       <template #title>
-        <h2>{{ products.selected.value.name }}</h2>
+        <h2>{{ products.selected.value ? products.selected.value.name : 'Sei interessato all'oggerta?' }}</h2>
         <h4>Richiedi maggiori informazioni</h4>
       </template>
 

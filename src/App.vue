@@ -213,6 +213,10 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+a {
+  color: currentColor;
+}
+
 #app {
   .b-overlay {
     min-height: calc(100vh - #{$s-header-brands-logo-height + (spacer(5) * 2)});

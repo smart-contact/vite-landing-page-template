@@ -1,10 +1,6 @@
 {
   "collection": "offerte-eni-comparazione-landing",
   "productsId": "1, 2",
-  "useRecaptcha": 0,
-  "account": "prezzogiusto",
-  "accountLogoMobile": "logo-prezzogiusto-small.png",
-  "accountLogo": "logo-prezzogiusto.svg",
   "smartBridgeSourceID": "37b26e7d-9afe-495d-946a-47a5a61862f4",
   "copyTitle": "Lorem Ipsum",
   "copySubtitle": "Lorem Ipsum",

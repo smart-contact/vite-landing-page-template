@@ -173,7 +173,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             category: this.params.get('f5'),
             surname: this.params.get('f5'),
             partnerName: '{{ partnerName }}',
-            prod: '{{ prod }}'
+            prod: '{{ prod }}',
+            device: window.innerWidth > 768 ? 'desktop' : 'mobile',
+            offer:'-'
           }
         },
 

@@ -2,14 +2,14 @@
   <div id="app">
     <s-header-brands
       class="py-5"
-      :left-logo="buyerLogo"
+      :left-logo="accountLogos"
       data-testid="header-brands"
     />
 
     <b-overlay :show="products.loading.value" spinner-variant="tiscali">
       <template #overlay="{ spinnerVariant }">
         <overlay-loading-screen
-          :logo="buyerLogo"
+          :logo="accountLogos[0]"
           :spinner-variant="spinnerVariant"
         />
       </template>
@@ -71,7 +71,7 @@ import AppProperties from "./components/AppProperties.vue";
 export default defineComponent({
   name: "App",
   components: {
-    CallMeBackModalTiscali
+    CallMeBackModalTiscali,
     SHeaderBrands,
     // SCallMeBackForm,
     SFooter,

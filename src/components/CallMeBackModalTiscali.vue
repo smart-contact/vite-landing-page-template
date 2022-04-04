@@ -1,6 +1,6 @@
 <template>
   <b-modal
-    id="call-me-back-modal-tiscali"
+    id="call-me-back-modal"
     hide-footer
     body-bg-variant="tiscali"
     hide-header

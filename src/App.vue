@@ -35,7 +35,6 @@
       title="Offerta Tiscali"
       subtitle="Richiedi maggiori informazioni"
       description="Sarai richiamato <b>GRATIS</b> e senza impegno"
-      id="call-me-back-modal"
       :call-me-back-form-options="callMeBackFormOptions"
       v-on="modalEvents"
       @submit="sendUpdatedData"

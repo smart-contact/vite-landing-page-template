@@ -31,11 +31,11 @@
       <span v-html="landing.params.get('copyFooter')" />
     </s-footer>
 
-    <call-me-back-modal-tiscali
+    <call-me-back-modal
       title="Offerta Tiscali"
       subtitle="Richiedi maggiori informazioni"
       description="Sarai richiamato <b>GRATIS</b> e senza impegno"
-      id="call-me-back-modal-tiscali"
+      id="call-me-back-modal"
       :call-me-back-form-options="callMeBackFormOptions"
       v-on="modalEvents"
       @submit="sendUpdatedData"
@@ -54,14 +54,14 @@ import {
   HeaderBrands as SHeaderBrands,
   Footer as SFooter,
 } from "@smart-contact/smartify";
-import CallMeBackModalTiscali from "./components/CallMeBackModalTiscali.vue";
+import CallMeBackModal from "./components/CallMeBackModalTiscali.vue";
 import OverlayLoadingScreen from "./components/OverlayLoadingScreen.vue";
 import AppHero from "./components/AppHero.vue";
 
 export default defineComponent({
   name: "App",
   components: {
-    CallMeBackModalTiscali,
+    CallMeBackModal,
     SHeaderBrands,
     SFooter,
     AppHero,

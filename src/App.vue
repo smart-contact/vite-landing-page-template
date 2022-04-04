@@ -103,11 +103,11 @@ export default defineComponent({
     const breakpoints = useBreakpoints(breakpointsBootstrapV5);
     const accountLogos = [
       {
-        src: `${LIVELANDING_CDN_IMAGES_BASE_URL}/${logoAccount}`,
+        src: `https://smart-contact-cdn.livelanding.it/images/${logoAccount}`,
         media: "(min-width: 768px)",
       },
       {
-        src: `${LIVELANDING_CDN_IMAGES_BASE_URL}/${logoAccountMobile}`,
+        src: `https://smart-contact-cdn.livelanding.it/images/${logoAccountMobile}`,
         alt: `logo ${account}`,
         default: true,
         media: "(max-width: 767.98px)",

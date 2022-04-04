@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <s-header-brands
-      class="py-5"
+      class="py-3"
       :left-logo="accountLogos"
       data-testid="header-brands"
     />
@@ -21,11 +21,8 @@
           :call-me-back-form-options="callMeBackFormOptions"
           @submit="sendLead"
         />
-        <main class="container border p-0 py-5">
+        <main>
           <!-- sections -->
-          <app-offers :products="products.items.value"></app-offers>
-
-          <!-- <price-egg :price="products.items.value[0].prices.default" /> -->
         </main>
       </template>
     </b-overlay>
@@ -47,6 +44,7 @@
 </template>
 
 <script>
+import optionalProductData from "../optionalProductData";
 import { computed, defineComponent, onBeforeMount } from "@vue/composition-api";
 import { breakpointsBootstrapV5, useBreakpoints } from "@vueuse/core";
 import {
@@ -58,9 +56,7 @@ import {
 } from "@smart-contact/smartify";
 import CallMeBackModalTiscali from "./components/CallMeBackModalTiscali.vue";
 import OverlayLoadingScreen from "./components/OverlayLoadingScreen.vue";
-import AppOffers from "./components/AppOffers.vue";
 import AppHero from "./components/AppHero.vue";
-import optionalProductData from "../optionalProductData";
 
 export default defineComponent({
   name: "App",
@@ -70,7 +66,6 @@ export default defineComponent({
     SFooter,
     AppHero,
     OverlayLoadingScreen,
-    AppOffers,
   },
   provide() {
     return {

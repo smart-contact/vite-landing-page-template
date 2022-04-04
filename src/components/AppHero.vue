@@ -30,10 +30,9 @@
 </template>
 
 <script>
-import { defineComponent } from "@vue/composition-api";
 import CallMeBackForm from "@/components/CallMeBackFormTiscali.vue";
 
-export default defineComponent({
+export default {
   name: "AppHero",
   inject: ["sendLead"],
   components: { CallMeBackForm },
@@ -44,50 +43,19 @@ export default defineComponent({
     },
     callMeBackFormOptions: Object,
   },
-});
+};
 </script>
 
 <style lang="scss">
 .hero {
-  &__cmb {
-    max-width: 60rem;
-
-    .btn[type="submit"] {
-      .small {
-        font-size: 0.65em;
-        line-height: 1.1;
-      }
-    }
-  }
+  background-image: url("@/assets/images/bg-hero-mobile.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   @include media-breakpoint-down("sm") {
-    background-image: linear-gradient(
-        to bottom,
-        transparent,
-        rgba($black, 0.25) 80%,
-        rgba($black, 0.95) 100%
-      ),
-      url("@/assets/images/bg-hero-mobile.webp");
-
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
     &__title {
       color: theme-color("secondary");
-    }
-
-    &__cmb {
-      color: $white;
-    }
-  }
-
-  @include media-breakpoint-up("md") {
-    .container {
-      background-position: right center;
-      background-size: auto 100%;
-      background-image: linear-gradient(90deg, #ffffff 30%, transparent 90%),
-        url("@/assets/images/bg-hero.webp");
     }
   }
 }

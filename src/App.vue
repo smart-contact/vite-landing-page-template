@@ -28,7 +28,6 @@
             :products="products"
           ></app-offer-bar>
           <app-offers :products="products.items.value"></app-offers>
-          <app-properties />
 
           <!-- <price-egg :price="products.items.value[0].prices.default" /> -->
         </main>
@@ -40,7 +39,7 @@
     </s-footer>
 
     <call-me-back-modal-tiscali
-      title="Ultrainternet Fibra"
+      title="Offerta Tiscali"
       subtitle="Richiedi maggiori informazioni"
       description="Sarai richiamato <b>GRATIS</b> e senza impegno"
       id="call-me-back-modal-tiscali"
@@ -59,26 +58,22 @@ import {
   useLead,
   useLanding,
   HeaderBrands as SHeaderBrands,
-  // CallMeBackForm as SCallMeBackForm,
   Footer as SFooter,
 } from "@smart-contact/smartify";
 import CallMeBackModalTiscali from "./components/CallMeBackModalTiscali.vue";
 import OverlayLoadingScreen from "./components/OverlayLoadingScreen.vue";
 import AppOffers from "./components/AppOffers.vue";
 import AppHero from "./components/AppHero.vue";
-import AppProperties from "./components/AppProperties.vue";
 
 export default defineComponent({
   name: "App",
   components: {
     CallMeBackModalTiscali,
     SHeaderBrands,
-    // SCallMeBackForm,
     SFooter,
     AppHero,
     OverlayLoadingScreen,
     AppOffers,
-    AppProperties,
   },
   provide() {
     return {

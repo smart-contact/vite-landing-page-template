@@ -1,135 +1,139 @@
 <!DOCTYPE html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex"/>
-    <meta name="theme-color" content="#ffffff">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://smart-contact-cdn.livelanding.it/images/favicon-iren.png">
-    <title></title>
 
-      <!-- Global site tag (gtag.js) - Google Ads: 709687048 -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-709687048"></script>
-      <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'AW-709687048'); </script>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="https://smart-contact-cdn.livelanding.it/images/favicon-iren.png">
+  <title></title>
 
-      <!-- Google Tag Manager -->
-      <script>(function (w, d, s, l, i) {
-          w[l] = w[l] || []; w[l].push({
-            'gtm.start':
-              new Date().getTime(), event: 'gtm.js'
-          }); var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-              'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-59PZ3VJ');</script>
-      <!-- End Google Tag Manager -->
-  </head>
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59PZ3VJ" height="0" width="0"
-        style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    
-    <div id="app"></div>
-    
-    <script>
-      window.$landingConfig = {
-        config: {
-          params(){
-            return {
-              //functional
-              // collection: { value: '{{ collection }}', default: '' },
-              products: { value: '{{ products }}', default: '1,3', parser: value => JSON.parse('[' + value + ']') },
-              sap: { value: '{{ sap }}', default: '' },
-              successURL: location.origin + location.pathname + '/success',
-              useRecaptcha: { value: '{{ useRecaptcha }}', default: "0", parser: value => !!Number(value)},
-              collapseToggleText: '{{ collapseToggleText }}',
-              account: { value: '{{ account }}', default: 'prezzogiusto' },
-              logoAccount: { value: '{{ accountLogo }}', default: 'logo-prezzogiusto.svg' },
-              logoAccountMobile: { value: '{{ accountLogoMobile }}', default: 'logo-prezzogiusto-small.png' },
+  <!-- Global site tag (gtag.js) - Google Ads: 709687048 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-709687048"></script>
+  <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'AW-709687048'); </script>
 
-              //copy
-              copyTitle: `{{ copyTitle }}`,
-              copySubtitle: `{{ copySubtitle }}`,
-              copyFooter: `{{ copyFooter }}`,
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-59PZ3VJ');</script>
+  <!-- End Google Tag Manager -->
+</head>
 
-              //privacy
-              "*privacy_1": { value: `{{ privacy_1 }}`, default: "Ho preso visione dell’informativa sul trattamento dei dati personali ai sensi degli artt. 13-14 del Reg. UE 2016/679" },
-              "&privacy_2": { value: `{{ privacy_2 }}`, default: "Presto il consenso al trattamento dei dati personali per finalità di marketing diretto" },
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59PZ3VJ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div id="app"></div>
+
+  <script>
+    window.$landingConfig = {
+      config: {
+        params() {
+          return {
+            //functional
+            // collection: { value: '{{ collection }}', default: '' },
+            products: { value: '{{ products }}', default: '1,3', parser: value => JSON.parse('[' + value + ']') },
+            sap: { value: '{{ sap }}', default: '' },
+            successURL: location.origin + location.pathname + '/success',
+            useRecaptcha: { value: '{{ useRecaptcha }}', default: "0", parser: value => !!Number(value) },
+            collapseToggleText: '{{ collapseToggleText }}',
+            account: { value: '{{ account }}', default: 'iren' },
+            logoAccount: { value: '{{ accountLogo }}', default: 'old_iren-revolution-logo.png' },
+            logoAccountMobile: { value: '{{ accountLogoMobile }}', default: 'old_iren-revolution-logo.png' },
+
+            //copy
+            copyTitle: `{{ copyTitle }}`,
+            copySubtitle: `{{ copySubtitle }}`,
+            copyFooter: `{{ copyFooter }}`,
+
+            //privacy
+            "*privacy_1": { value: `{{ privacy_1 }}`, default: "Ho preso visione dell’informativa sul trattamento dei dati personali ai sensi degli artt. 13-14 del Reg. UE 2016/679" },
+            "&privacy_2": { value: `{{ privacy_2 }}`, default: "Presto il consenso al trattamento dei dati personali per finalità di marketing diretto" },
 
 
-              //tracking
-              gclid: this.url.searchParams.get('gclid'),
-              f4: { value: this.url.searchParams.get('f4') || '{{ f4 }}', default: 'iren' },
-              f5: { value: this.url.searchParams.get('f5') || '{{ f5 }}', default: 'sem' },
-              f11: { value: this.url.searchParams.get('f11') || '{{ f11 }}', default: '0' },
-              f12: { value: this.url.searchParams.get('keyword') || '0' },
-              f13: { value: this.url.searchParams.get('matchtype') || '0' },
-              f14: { value: this.url.searchParams.get('creative') || '0' },
-              f15: { value: this.url.searchParams.get('f15') || '{{ f15 }}', default: '0' },
-              f18: { value: this.url.searchParams.get('f18') || '{{ f18 }}', default: '0' }
-            }
-          },
-
-          data(){
-            return{
-              url_landing: location.origin + location.pathname,
-              name: '-',
-              surname: '-',
-              offer: '-',
-              categoria_prodotto: '-',
-              prodotto_interesse: '-',
-              city: 'ND',
-              state: 'ND'
-            }
-          },
-
-          injection: {
-            sourceOptions:  {
-              id: 'c45a6870-c8cb-4d4a-9dc5-b30a56e0ba13'
-            }
+            //tracking
+            gclid: this.url.searchParams.get('gclid'),
+            f4: { value: this.url.searchParams.get('f4') || '{{ f4 }}', default: 'iren' },
+            f5: { value: this.url.searchParams.get('f5') || '{{ f5 }}', default: 'sem' },
+            f11: { value: this.url.searchParams.get('f11') || '{{ f11 }}', default: '0' },
+            f12: { value: this.url.searchParams.get('keyword') || '0' },
+            f13: { value: this.url.searchParams.get('matchtype') || '0' },
+            f14: { value: this.url.searchParams.get('creative') || '0' },
+            f15: { value: this.url.searchParams.get('f15') || '{{ f15 }}', default: '0' },
+            f18: { value: this.url.searchParams.get('f18') || '{{ f18 }}', default: '0' }
           }
         },
-        options: {},
-        afterInit(landing){
-          landing.mapParamsToData(['gclid as idorigine', 'sap', 'f4','f5', 'f11', 'f12', 'f13', 'f14', 'f15', 'f18']);
-          if(landing.params.get('useFo')){
-            landing.scheduleBetween('21:00:00', '09:00:00', () => {
-              landing.data.set('sap', landing.params.get('sap') + '_fo');
-              landing.params.set('useCtc', 0);
-            });
+
+        data() {
+          return {
+            url_landing: location.origin + location.pathname,
+            name: '-',
+            surname: '-',
+            offer: '-',
+            categoria_prodotto: '-',
+            prodotto_interesse: '-',
+            city: 'ND',
+            state: 'ND'
           }
+        },
 
-          setSuccessURLParams(landing);
+        injection: {
+          sourceOptions: {
+            id: 'c45a6870-c8cb-4d4a-9dc5-b30a56e0ba13'
+          }
         }
-      };
-
-
-      function setSuccessURLParams (landing){
-        if(landing.params.get('successURL')){
-          const url = new URL(landing.params.get('successURL'), location.origin);
-
-          //inserire qui la mappatura dei parametri della landing sull'url
-          const paramsMap = {
-            prov: landing.params.get('f5'),
-            f11:  landing.params.get('f11'),
-            f12:  landing.params.get('f12'),
-            f13:  landing.params.get('f13'),
-            f14:  landing.params.get('f14'),
-            f15:  landing.params.get('f15'),
-          };
-
-          Object.entries(paramsMap).forEach(([key, value]) => {
-            if(value !== undefined && value !== ''){
-              url.searchParams.append(key, value)    
-            }
+      },
+      options: {},
+      afterInit(landing) {
+        landing.mapParamsToData(['gclid as idorigine', 'sap', 'f4', 'f5', 'f11', 'f12', 'f13', 'f14', 'f15', 'f18']);
+        if (landing.params.get('useFo')) {
+          landing.scheduleBetween('21:00:00', '09:00:00', () => {
+            landing.data.set('sap', landing.params.get('sap') + '_fo');
+            landing.params.set('useCtc', 0);
           });
-
-          landing.params.set('successURL', url.toString());
         }
+
+        setSuccessURLParams(landing);
       }
-    </script>
-    
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    };
+
+
+    function setSuccessURLParams(landing) {
+      if (landing.params.get('successURL')) {
+        const url = new URL(landing.params.get('successURL'), location.origin);
+
+        //inserire qui la mappatura dei parametri della landing sull'url
+        const paramsMap = {
+          prov: landing.params.get('f5'),
+          f11: landing.params.get('f11'),
+          f12: landing.params.get('f12'),
+          f13: landing.params.get('f13'),
+          f14: landing.params.get('f14'),
+          f15: landing.params.get('f15'),
+        };
+
+        Object.entries(paramsMap).forEach(([key, value]) => {
+          if (value !== undefined && value !== '') {
+            url.searchParams.append(key, value)
+          }
+        });
+
+        landing.params.set('successURL', url.toString());
+      }
+    }
+  </script>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>

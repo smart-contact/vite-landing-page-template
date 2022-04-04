@@ -2,8 +2,7 @@
   <div id="app">
     <s-header-brands
       class="py-5"
-      :left-logo="buyerLogo"
-      :right-logo="accountLogos"
+      :left-logo="accountLogos"
       data-testid="header-brands"
     />
 

@@ -172,15 +172,6 @@ export default defineComponent({
             /(open|full)$/i,
             ""
           );
-
-          landing.data.set(
-            "offer",
-            [
-              products.selected.value.name,
-              products.selected.value.prices.default.value,
-              products.selected.value.prices.default.invoiceUnit,
-            ].join(" ")
-          );
         });
     });
 

@@ -97,13 +97,31 @@
       afterInit(landing) {
         landing.mapParamsToData(['gclid as idorigine', 'sap', 'f4', 'f5', 'f11', 'f12', 'f13', 'f14', 'f15', 'f18']);
         if (landing.params.get('useFo')) {
-          console.log('test')
-          landing.scheduleBetween('21:00:00', '09:00:00', () => {
-            landing.data.set('sap', landing.params.get('sap') + '_fo');
-            landing.params.set('useCtc', 0);
-          });
-        }
+          //default sap
+          landing.data.set('sap', landing.params.get('sap') + '_first');
 
+          switch (new Date().getDay()) {
+            //sabato
+            case 6:
+              landing.scheduleBetween('10:00:00', '11:00:00', () => {
+                landing.data.set('sap', landing.params.get('sap') + '_second');
+              });
+              landing.scheduleBetween('14:00:00', '15:00:00', () => {
+                landing.data.set('sap', landing.params.get('sap') + '_second');
+              });
+              break;
+            //domenica
+            case 0:
+              landing.data.set('sap', landing.params.get('sap') + '_third');
+              break;
+            //da lunedì a venerdì
+            default:
+              landing.scheduleBetween('19:45:00', '20:45:00', () => {
+                landing.data.set('sap', landing.params.get('sap') + '_second');
+              });
+              break;
+          }
+        }
         setSuccessURLParams(landing);
       }
     };

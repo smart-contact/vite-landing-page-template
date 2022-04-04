@@ -16,9 +16,12 @@
 
       <template v-if="!products.loading.value">
         <!-- app-hero -->
-        <call-me-back-form />
+        <call-me-back-form layout="horizontal" />
         <main>
           <!-- sections -->
+          <b-button @click="$bvModal.show('call-me-back-modal')"
+            >clicca</b-button
+          >
         </main>
       </template>
     </b-overlay>
@@ -27,11 +30,19 @@
       <span v-html="landing.params.get('copyFooter')" />
     </s-footer>
 
-    <s-call-me-back-modal
+    <b-modal
       id="call-me-back-modal"
-      :call-me-back-form-options="callMeBackFormOptions"
+      hide-footer
+      size="md"
       v-on="modalEvents"
-    />
+      title="Vuoi avere maggiori informazioni?"
+    >
+      <div class="mb-3">
+        Un consulente ti contatterà per fornirti tutte le informazioni
+        necessarie gratis
+      </div>
+      <call-me-back-form @submit="sendLead"></call-me-back-form>
+    </b-modal>
   </div>
 </template>
 
@@ -43,10 +54,9 @@ import {
   useLead,
   useLanding,
   HeaderBrands as SHeaderBrands,
-  // CallMeBackForm as SCallMeBackForm,
   Footer as SFooter,
-  CallMeBackModal as SCallMeBackModal,
 } from "@smart-contact/smartify";
+
 import OverlayLoadingScreen from "@/components/OverlayLoadingScreen.vue";
 import CallMeBackForm from "@/components/CallMeBackFormIren.vue";
 
@@ -55,9 +65,7 @@ export default defineComponent({
   components: {
     CallMeBackForm,
     SHeaderBrands,
-    // SCallMeBackForm,
     SFooter,
-    SCallMeBackModal,
     OverlayLoadingScreen,
   },
   provide() {

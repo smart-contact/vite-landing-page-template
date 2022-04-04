@@ -4,10 +4,10 @@ import {
   FormPlugin,
   FormGroupPlugin,
   FormInputPlugin,
+  ModalPlugin,
   ButtonPlugin,
   OverlayPlugin,
   SpinnerPlugin,
-  ModalPlugin,
   BIcon,
   BIconTelephoneFill,
 } from "bootstrap-vue";

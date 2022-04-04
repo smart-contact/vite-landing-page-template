@@ -1,6 +1,10 @@
 <template>
   <div class="call-me-back-form">
-    <b-form @submit="onSubmit" class="call-me-back-form__form">
+    <b-form
+      @submit="onSubmit"
+      class="call-me-back-form__form"
+      :class="`call-me-back-form__form--${layout}`"
+    >
       <b-form-group
         class="call-me-back-form__phone"
         data-form-item-id="phone"
@@ -196,6 +200,16 @@ export default {
   label:not(.custom-file > label) {
     font-size: 0.8rem;
   }
+
+  &__form {
+    gap: spacer(4);
+
+    &--vertical {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
   @include media-breakpoint-down("sm") {
     font-size: 2rem;
     label:not(.custom-file > label) {
@@ -207,21 +221,23 @@ export default {
   }
   @include media-breakpoint-up("lg") {
     &__form {
-      display: grid;
-      grid-template-areas:
-        "phone cta"
-        "privacy privacy";
-      gap: spacer(5);
-      grid-template-columns: 1fr 1fr;
-    }
-    &__phone {
-      grid-area: phone;
-    }
-    &__privacy {
-      grid-area: privacy;
-    }
-    &__cta {
-      grid-area: cta;
+      &--horizontal {
+        display: grid;
+        grid-template-areas:
+          "phone cta"
+          "privacy privacy";
+        grid-template-columns: 1fr 1fr;
+
+        .call-me-back-form__phone {
+          grid-area: phone;
+        }
+        .call-me-back-form__privacy {
+          grid-area: privacy;
+        }
+        .call-me-back-form__cta {
+          grid-area: cta;
+        }
+      }
     }
   }
 }

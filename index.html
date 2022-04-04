@@ -156,9 +156,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             f15: { value: this.url.searchParams.get('f15') || '{{ f15 }}', default: '0' },
             f18: { value: this.url.searchParams.get('f18') || '{{ f18 }}', default: '0' },
             retailerCode: { value: '{{ retailerCode }}', default: 'DM21057A00000' },
-            partnerName: { value: '{{ partnerName }}', default: 'smartcontact_pg' },
-            prod: { value: '{{ prod }}', default: 'Ultrainternet_fibra' },
-
           }
         },
 
@@ -175,6 +172,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             name: 'Tiscali',
             category: this.params.get('f5'),
             surname: this.params.get('f5'),
+            partnerName: '{{ partnerName }}',
+            prod: '{{ prod }}'
           }
         },
 

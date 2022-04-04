@@ -142,7 +142,7 @@ export default defineComponent({
 
     const onProductSelected = (productIndex) => {
       products.setSelectedIndex(productIndex);
-      $bvModal.show("call-me-back-modal");
+      $bvModal.show("call-me-back-modal-tiscali");
     };
 
     const modalEvents = {

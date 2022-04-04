@@ -5,6 +5,8 @@
     body-bg-variant="tiscali"
     hide-header
     body-text-variant="white"
+    @show="$emit('show', $event)"
+    @hide="$emit('hide', $event)"
   >
     <template #default="{ close }">
       <b-button-close class="text-white" @click="close" />

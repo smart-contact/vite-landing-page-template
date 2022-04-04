@@ -16,12 +16,8 @@
 
       <template v-if="!products.loading.value">
         <!-- app-hero -->
-        <call-me-back-form layout="horizontal" />
         <main>
           <!-- sections -->
-          <b-button @click="$bvModal.show('call-me-back-modal')"
-            >clicca</b-button
-          >
         </main>
       </template>
     </b-overlay>

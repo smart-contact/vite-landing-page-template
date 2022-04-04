@@ -29,11 +29,6 @@
         />
       </b-form-group>
 
-      <div
-        class="call-me-back-form__privacy smaller mb-4"
-        v-html="$landing.params.get('copyPrivacy')"
-      ></div>
-
       <b-button
         @click="onSubmit"
         :variant="submitBtnVariant"
@@ -49,6 +44,11 @@
           variant="white"
         ></b-spinner
       ></b-button>
+
+      <div
+        class="call-me-back-form__privacy smaller mb-4"
+        v-html="$landing.params.get('copyPrivacy')"
+      ></div>
     </b-form>
   </div>
 </template>

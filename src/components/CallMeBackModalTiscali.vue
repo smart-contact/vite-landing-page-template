@@ -21,7 +21,7 @@
 
         <call-me-back-form
           layout="horizontal"
-          @submit="sendLead"
+          @submit="$emit('submit', $event)"
           v-bind="callMeBackFormOptions"
         >
           <span slot="cta"
@@ -37,7 +37,7 @@
 <script>
 import CallMeBackForm from "@/components/CallMeBackFormTiscali.vue";
 export default {
-  inject: ["sendLead", "callMeBackFormOptions"],
+  inject: ["callMeBackFormOptions"],
   components: {
     CallMeBackForm,
   },

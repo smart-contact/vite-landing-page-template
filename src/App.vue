@@ -23,10 +23,6 @@
         />
         <main class="container border p-0 py-5">
           <!-- sections -->
-          <app-offer-bar
-            v-if="this.breakpoints.greater('md').value"
-            :products="products"
-          ></app-offer-bar>
           <app-offers :products="products.items.value"></app-offers>
 
           <!-- <price-egg :price="products.items.value[0].prices.default" /> -->
@@ -45,7 +41,7 @@
       id="call-me-back-modal-tiscali"
       :call-me-back-form-options="callMeBackFormOptions"
       v-on="modalEvents"
-      @submit="sendLead"
+      @submit="sendUpdatedData"
     />
   </div>
 </template>
@@ -64,6 +60,7 @@ import CallMeBackModalTiscali from "./components/CallMeBackModalTiscali.vue";
 import OverlayLoadingScreen from "./components/OverlayLoadingScreen.vue";
 import AppOffers from "./components/AppOffers.vue";
 import AppHero from "./components/AppHero.vue";
+import optionalProductData from "../optionalProductData";
 
 export default defineComponent({
   name: "App",
@@ -119,6 +116,18 @@ export default defineComponent({
         : {};
     });
 
+    const sendUpdatedData = (data) => {
+      if (products.selected.value.data)
+        Object.keys(products.selected.value.data).forEach((datum) => {
+          landing.data.set(datum, products.selected.value.data[datum]);
+        });
+      if (products.selected.value.params)
+        Object.keys(products.selected.value.params).forEach((param) => {
+          landing.params.set(param, products.selected.value.params[param]);
+        });
+      sendLead(data);
+    };
+
     const sendLead = async (data = {}) => {
       const { successURL } = landing.params.get();
       try {
@@ -162,16 +171,20 @@ export default defineComponent({
         .then(() => {
           products.setSelectedIndex(0);
 
-          //modify product name. Removes "full" or "open" from name.
-          products.items.value[0].name = products.items.value[0].name.replace(
-            /(open|full)$/i,
-            ""
-          );
+          optionalProductData.products.forEach((productData) => {
+            const product = products.items.value.filter(
+              (el) => el.id === productData.id
+            )[0];
+            Object.keys(productData).forEach(
+              (key) => (product[key] = productData[key])
+            );
+          });
         });
     });
 
     return {
       products,
+      sendUpdatedData,
       breakpoints,
       accountLogos,
       buyerLogo,

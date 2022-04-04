@@ -131,7 +131,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             // collection: { value: '{{ collection }}', default: '' },
             products: { value: '{{ products }}', default: '1,3', parser: value => JSON.parse('[' + value + ']') },
             sap: { value: '{{ sap }}', default: '' },
-            successURL: '{{ successURL }}',
+            successURL: location.origin + location.pathname + '/success',
             useRecaptcha: { value: '{{ useRecaptcha }}', default: "0", parser: value => !!Number(value) },
             collapseToggleText: '{{ collapseToggleText }}',
             account: { value: '{{ account }}', default: 'tiscali' },
@@ -181,7 +181,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         injection: {
           sourceOptions: {
-            id: '{{ smartBridgeSourceID }}'
+            id: 'd6137628-91b3-441e-a41a-fe16ecb02f3b'
           }
         }
       },
@@ -194,12 +194,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'retailerCode as retailer_code',
           'partnerName as partner_name',
           'f5 as distribution_code',
-          'prod'
         ]);
 
         const cookiesOptions = {
-          expires: 15,
-          // domain: '.verificalacopertura.it'
+          expires: 15, ì
         };
         landing.cookies.set('session.Distribution', landing.params.get('f5'), cookiesOptions);
         landing.cookies.set('session.PARTNER_NAME', landing.params.get('partnerName'), cookiesOptions);

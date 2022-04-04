@@ -16,6 +16,7 @@
 
       <template v-if="!products.loading.value">
         <!-- app-hero -->
+        <call-me-back-form />
         <main>
           <!-- sections -->
         </main>
@@ -47,10 +48,12 @@ import {
   CallMeBackModal as SCallMeBackModal,
 } from "@smart-contact/smartify";
 import OverlayLoadingScreen from "@/components/OverlayLoadingScreen.vue";
+import CallMeBackForm from "@/components/CallMeBackFormIren.vue";
 
 export default defineComponent({
   name: "App",
   components: {
+    CallMeBackForm,
     SHeaderBrands,
     // SCallMeBackForm,
     SFooter,

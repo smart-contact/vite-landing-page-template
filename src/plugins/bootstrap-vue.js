@@ -1,6 +1,9 @@
 import Vue from "vue";
 
 import {
+  FormPlugin,
+  FormGroupPlugin,
+  FormInputPlugin,
   ButtonPlugin,
   OverlayPlugin,
   SpinnerPlugin,
@@ -9,6 +12,9 @@ import {
   BIconTelephoneFill,
 } from "bootstrap-vue";
 
+Vue.use(FormPlugin);
+Vue.use(FormGroupPlugin);
+Vue.use(FormInputPlugin);
 Vue.use(ButtonPlugin);
 Vue.use(SpinnerPlugin);
 Vue.use(OverlayPlugin);

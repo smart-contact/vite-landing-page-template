@@ -3,7 +3,7 @@
     <b-spinner :variant="props.spinnerVariant" />
 
     <div class="overlay-loading-screen__logo mt-4" v-if="props.logo">
-      <img v-bind="props.logo" />
+      <img class="img-contain" v-bind="props.logo" />
     </div>
   </div>
 </template>

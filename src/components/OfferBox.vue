@@ -54,17 +54,21 @@ export default {
       redirectURL: contents.redirectURLS.base,
     };
   },
-  inject: ["onProductSelected"],
+  inject: ["onProductSelected", "products"],
   props: {
-    index: Number,
-    product: {
-      required: true,
-      type: Object,
-    },
-    product_convergenza: Object,
+    productIndex: Number,
+    product_convergenza_index: Number,
     buttonText: {
       type: String,
       default: "TI CHIAMIAMO NOI",
+    },
+  },
+  computed: {
+    product() {
+      return this.products.value[this.productIndex];
+    },
+    product_convergenza() {
+      return this.products.value[this.product_convergenza_index];
     },
   },
   methods: {

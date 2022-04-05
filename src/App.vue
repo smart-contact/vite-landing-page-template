@@ -74,6 +74,7 @@ export default defineComponent({
       params: this.landing.params.get(),
       onProductSelected: this.onProductSelected,
       sendLead: this.sendLead,
+      products: this.products.items
     };
   },
   inject: ["callMeBackFormOptions"],

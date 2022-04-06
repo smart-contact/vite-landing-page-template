@@ -56,6 +56,7 @@ import {
 import CallMeBackModal from "./components/CallMeBackModalTiscali.vue";
 import OverlayLoadingScreen from "./components/OverlayLoadingScreen.vue";
 import AppHero from "./components/AppHero.vue";
+import Vue from "vue";
 
 export default defineComponent({
   name: "App",
@@ -74,7 +75,7 @@ export default defineComponent({
       params: this.landing.params.get(),
       onProductSelected: this.onProductSelected,
       sendLead: this.sendLead,
-      products: this.products.items
+      products: this.products.items,
     };
   },
   inject: ["callMeBackFormOptions"],
@@ -170,8 +171,8 @@ export default defineComponent({
             const product = products.items.value.filter(
               (el) => el.id === productData.id
             )[0];
-            Object.keys(productData).forEach(
-              (key) => (product[key] = productData[key])
+            Object.keys(productData).forEach((key) =>
+              Vue.set(product, key, productData[key])
             );
           });
         });

@@ -1,14 +1,7 @@
 <template>
   <section class="offer-bar py-2">
     <div
-      class="
-        container
-        bg-tiscali
-        p-5
-        d-flex
-        justify-content-around
-        align-items-center
-      "
+      class="container bg-tiscali p-5 d-flex justify-content-around align-items-center"
     >
       <div class="text-white">
         <div class="text-uppercase" v-html="offerBar.title"></div>
@@ -25,21 +18,23 @@
 import contents from "@/../contents";
 export default {
   name: "AppOfferBar",
-  inject: ["onProductSelected"],
+  inject: ["onProductSelected", "redirectSelf"],
+  props: {
+    redirectURL: String,
+  },
   data() {
     return {
       offerBar: contents.offerBar,
-      redirectURL: contents.redirectURLS.base,
     };
   },
   methods: {
     onButtonClick(option) {
       switch (option) {
         case "redirectSelf":
-          this.$emit("redirectSelf", this.redirectURL);
+          this.redirectSelf(this.redirectURL);
           break;
         default:
-          this.onProductSelected(0);
+          this.$bvModal.show("call-me-back-modal");
           break;
       }
     },

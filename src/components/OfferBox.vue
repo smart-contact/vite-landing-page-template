@@ -54,7 +54,7 @@ export default {
       redirectURL: contents.redirectURLS.base,
     };
   },
-  inject: ["onProductSelected", "products"],
+  inject: ["onProductSelected", "products", "redirectSelf"],
   props: {
     productIndex: Number,
     product_convergenza_index: Number,
@@ -75,7 +75,7 @@ export default {
     onButtonClick(option) {
       switch (option) {
         case "redirectSelf":
-          this.$emit("redirectSelf", this.redirectURL);
+          this.redirectSelf(this.product.redirectURL);
           break;
         default:
           this.onProductSelected(this.index);

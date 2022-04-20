@@ -11,7 +11,7 @@
     "test:e2e": "npm-run-all --parallel dev cypress:open"
   },
   "dependencies": {
-    "@smart-contact/smartify": "^0.23.3",
+    "@smart-contact/smartify": "^0.23.4",
     "@smart-contact/smartland": "^3.1.0",
     "@smart-contact/smartland-plugin-scheduler": "^1.0.7",
     "@smart-contact/smartland-plugin-smart-bridge": "^1.0.0",

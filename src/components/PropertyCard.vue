@@ -3,7 +3,7 @@
     class="property text-center d-flex flex-md-column align-items-center justify-md-content-between"
   >
     <div class="property__icon mx-md-auto">
-      <img :src="getImageUrl()" class="img-contain" />
+      <img :src="getImageURL()" class="img-contain" />
     </div>
     <div
       class="property__title text-tiscali font-weight-bold"
@@ -13,7 +13,10 @@
 </template>
 
 <script>
+import { getImgURLMixin } from "@/mixins";
+
 export default {
+  mixins: [getImgURLMixin],
   methods: {
     getImageUrl: function () {
       return new URL(
@@ -35,7 +38,7 @@ export default {
 $icon-size: 15rem;
 .property {
   &__icon {
-    width: $icon-size;
+    max-width: $icon-size;
   }
   &__title {
     font-size: 1.5rem;

@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/png" sizes="32x32"
     href="https://smart-contact-cdn.livelanding.it/images/favicon-{{ account }}.png">
-  <title></title>
+  <title>{{ pageTitle }}</title>
 
   <!-- @{{ GoogleGlobalSiteTag }} -->
   <!-- @{{ GoogleAdsDataLayerPageView }} -->
@@ -49,14 +49,14 @@
           return {
             //functional
             // collection: { value: '{{ collection }}', default: '' },
-            products: { value: '{{ products }}', default: '1,3', parser: value => JSON.parse('[' + value + ']') },
-            sap: { value: '{{ sap }}', default: '' },
+            products: { value: '{{ products }}', parser: value => JSON.parse('[' + value + ']') },
+            sap: '{{ sap }}',
             successURL: '{{ successURL }}',
             collapseToggleText: '{{ collapseToggleText }}',
             useRecaptcha: { value: '{{ useRecaptcha }}', default: "0", parser: value => !!Number(value) },
-            account: { value: '{{ account }}', default: 'prezzogiusto' },
-            logoAccount: { value: '{{ accountLogo }}', default: 'logo-prezzogiusto.svg' },
-            logoAccountMobile: { value: '{{ accountLogoMobile }}', default: 'logo-prezzogiusto-small.png' },
+            account: '{{ account }}',
+            logoAccount: '{{ accountLogo }}',
+            logoAccountMobile: '{{ accountLogoMobile }}',
 
             //copy
             copyTitle: `{{ copyTitle }}`,
@@ -87,7 +87,7 @@
             url_landing: location.origin + location.pathname,
             name: '-',
             surname: '-',
-            offer: '-',
+            offer: '{{ defaultOffer }}',
           }
         },
 

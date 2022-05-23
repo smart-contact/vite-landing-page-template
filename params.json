@@ -1,7 +1,7 @@
 {
   "collection": "offerte-eni-comparazione-landing",
   "useFo": "1",
-  "productsId": "1, 2",
+  "products": "1, 2",
   "smartBridgeSourceID": "37b26e7d-9afe-495d-946a-47a5a61862f4",
   "copyTitle": "Lorem Ipsum",
   "copySubtitle": "Lorem Ipsum",

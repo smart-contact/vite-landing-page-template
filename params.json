@@ -1,6 +1,6 @@
 {
   "collection": "offerte-eni-comparazione-landing",
-  "productsId": "1, 2",
+  "products": "1, 2",
   "useRecaptcha": 0,
   "account": "prezzogiusto",
   "accountLogoMobile": "logo-prezzogiusto-small.png",

@@ -30,6 +30,7 @@
             // collection: { value: '{{ collection }}', default: '' },
             products: { value: '{{ products }}', default: '1,3', parser: value => JSON.parse('[' + value + ']') },
             sap: { value: '{{ sap }}', default: '' },
+            useFo: { value: '{{ useFo }}', default: '0', parser: value => !!Number(value) },
             successURL: '{{ successURL }}',
             useRecaptcha: { value: '{{ useRecaptcha }}', default: "0", parser: value => !!Number(value) },
             collapseToggleText: '{{ collapseToggleText }}',

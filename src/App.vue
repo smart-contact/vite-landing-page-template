@@ -184,6 +184,8 @@ export default defineComponent({
         ...this.offers[i],
         type,
         ...this.products.items.value[i].prices[type],
+        alternative_price:
+          this.products.items.value[i].metadata[`alt_costo_${type}`],
       }));
     },
   },

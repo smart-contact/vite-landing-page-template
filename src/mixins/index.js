@@ -1,1 +1,1 @@
-export { default as getImgURLMixin } from "./getImgURL";
+export { default as getImageURLMixin } from "./getImageURL";

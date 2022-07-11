@@ -5,8 +5,9 @@ import "@/plugins/bootstrap-vue.js";
 import "@/plugins/smartland.js";
 // import "@/components/index.js";
 import App from "./App.vue";
-
 import "@/assets/scss/index.scss";
+import { getImgURLMixin } from "@/mixins";
+Vue.mixin(getImgURLMixin);
 
 new Vue({
   provide() {

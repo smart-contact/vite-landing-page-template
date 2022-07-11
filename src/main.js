@@ -6,9 +6,10 @@ import "@/plugins/smartland.js";
 import "@/plugins/smartify.js";
 // import "@/components/index.js";
 import App from "./App.vue";
-
 import "@/assets/scss/index.scss";
 import "@/assets/scss/vendors/smartify/_index.scss";
+import { getImageURLMixin } from "@/mixins";
+Vue.mixin(getImageURLMixin);
 
 new Vue({
   provide() {

@@ -6,8 +6,8 @@ import "@/plugins/smartland.js";
 // import "@/components/index.js";
 import App from "./App.vue";
 import "@/assets/scss/index.scss";
-import { getImgURLMixin } from "@/mixins";
-Vue.mixin(getImgURLMixin);
+import { getImageURLMixin } from "@/mixins";
+Vue.mixin(getImageURLMixin);
 
 new Vue({
   provide() {

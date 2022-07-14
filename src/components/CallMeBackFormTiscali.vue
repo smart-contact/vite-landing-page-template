@@ -182,6 +182,7 @@ export default {
 
         column-gap: spacer(4);
         grid-template-columns: 50% auto;
+        align-items: flex-start;
       }
     }
     &__phone {

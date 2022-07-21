@@ -76,6 +76,7 @@ export default defineComponent({
       onProductSelected: this.onProductSelected,
       sendLead: this.sendLead,
       products: this.products.items,
+      redirectSelf: this.redirectSelf,
     };
   },
   inject: ["callMeBackFormOptions"],

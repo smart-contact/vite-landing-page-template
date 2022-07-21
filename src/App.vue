@@ -53,7 +53,7 @@ import {
   HeaderBrands as SHeaderBrands,
   Footer as SFooter,
 } from "@smart-contact/smartify";
-import CallMeBackModal from "./components/CallMeBackModalTiscali.vue";
+import CallMeBackModal from "./components/CallMeBackModal.vue";
 import OverlayLoadingScreen from "./components/OverlayLoadingScreen.vue";
 import AppHero from "./components/AppHero.vue";
 import Vue from "vue";

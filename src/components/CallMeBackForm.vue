@@ -1,6 +1,6 @@
 <template>
   <b-modal
-    id="call-me-back-modal-tiscali"
+    :id="modalID"
     hide-footer
     body-bg-variant="tiscali"
     hide-header
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import CallMeBackForm from "@/components/CallMeBackFormTiscali.vue";
+import CallMeBackForm from "@/components/CallMeBackForm.vue";
 export default {
   inject: ["callMeBackFormOptions"],
   components: {
@@ -45,6 +45,10 @@ export default {
     title: {
       type: String,
       default: "Richiedi maggiori informazioni",
+    },
+    modalID: {
+      type: String,
+      default: "call-me-back-modal",
     },
     subtitle: {
       type: String,
@@ -70,7 +74,7 @@ export default {
 </script>
 
 <style lang="scss">
-#call-me-back-modal-tiscali.modal {
+#call-me-back-modal.modal {
   .modal {
     &__content {
       flex: 1 1 50%;

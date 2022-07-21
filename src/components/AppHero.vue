@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import CallMeBackForm from "@/components/CallMeBackFormTiscali.vue";
+import CallMeBackForm from "@/components/CallMeBackForm.vue";
 
 export default {
   name: "AppHero",

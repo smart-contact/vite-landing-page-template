@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { computed, defineComponent, onBeforeMount } from "@vue/composition-api";
+import { computed, defineComponent, onBeforeMount } from "vue";
 import { breakpointsBootstrapV5, useBreakpoints } from "@vueuse/core";
 import {
   useProducts,
@@ -69,8 +69,7 @@ export default defineComponent({
     };
   },
   inject: ["callMeBackFormOptions"],
-  setup(_, context) {
-    const { $bvModal } = context.root;
+  setup() {
     const landing = useLanding();
     const { logoAccountMobile, logoAccount, account } = landing.params.get();
     const products = useProducts();

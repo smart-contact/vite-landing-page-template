@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#ffffff">
@@ -12,10 +11,7 @@
   <title></title>
 
   <!-- @{{ GoogleGlobalSiteTag }} -->
-  <!-- @{{ GoogleAdsDataLayerPageView }} -->
   <!-- @{{ GoogleTagManagerHead }} -->
-  <!-- @{{ privacyModalScript }} -->
-  <!-- @{{ cookiebotScript }} -->
 </head>
 
 <body>
@@ -34,7 +30,6 @@
             sap: { value: '{{ sap }}', default: '' },
             useFo: { value: '{{ useFo }}', default: '0', parser: value => !!Number(value) },
             successURL: '{{ successURL }}',
-            useRecaptcha: { value: '{{ useRecaptcha }}', default: "0", parser: value => !!Number(value) },
             collapseToggleText: '{{ collapseToggleText }}',
             account: { value: '{{ account }}', default: 'prezzogiusto' },
             logoAccount: { value: '{{ accountLogo }}', default: 'logo-prezzogiusto.svg' },
@@ -47,9 +42,6 @@
 
             //privacy
             "*privacy_1": `{{ privacy_1 }}`,
-            "&privacy_2": `{{ privacy_2 }}`,
-            "&privacy_3": `{{ privacy_3 }}`,
-            "&privacy_4": `{{ privacy_4 }}`,
 
             //tracking
             gclid: this.url.searchParams.get('gclid'),
@@ -119,7 +111,6 @@
   </script>
 
   <script type="module" src="/src/main.js"></script>
-  <!-- @{{ privacyModalElement }} -->
 </body>
 
 </html>

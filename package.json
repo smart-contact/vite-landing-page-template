@@ -19,7 +19,6 @@
     "@vuelidate/validators": "^2.0.0-alpha.25",
     "bootstrap-vue": "latest",
     "vue": "^2.7.x",
-    "vue-recaptcha-v3": "^1.9.0",
     "vuelidate": "^0.7.6",
     "@vueuse/core": "^6.7.3"
   },

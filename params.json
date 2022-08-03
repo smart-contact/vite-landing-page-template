@@ -2,10 +2,11 @@
   "collection": "offerte-eni-comparazione-landing",
   "products": "1",
   "account": "meglioquesto",
+  "smartBridgeSourceID": "136cb83c-4cca-4d4c-9eb3-6218cb121ba4",
   "accountLogoMobile": "logo-meglioQuesto-mobile.png",
   "accountLogo": "logo-meglioQuesto.png",
   "copyTitle": "Lorem Ipsum",
   "copySubtitle": "Lorem Ipsum",
-  "copyFooter": "",
-  "privacy_1": "Privacy Policy *<br/>Ho preso visione dell'Informativa di MeglioQuesto Lead"
-  }
+  "copyFooter": "• MeglioQuesto è un marchio registrato tm302018000025522 di MeglioQuesto SpA •<br />• Via Tucidide 56 - 20134 Milano | P.IVA e Iscrizione Registro delle imprese di Milano 09856440962 •<br />• I servizi di consulenza tariffe, marketing digitale, e l'assistenza personalizzata gratuita sono gestiti da MeglioQuesto Lead Srl | P.IVA 01552090621 •<br />• È vietata la riproduzione, anche solo parziale, di contenuti e grafica •<br/><br/><a href='https://meglioquesto.it/termini-condizioni/' target='_blank'>Termini e Condizioni del servizio</a> | <a href='https://meglioquesto.it/privacy-policy/' target='_blank'>Privacy Policy</a> | <a href='https://meglioquesto.it/cookie/' target='_blank'>Cookie Policy</a>",
+  "privacy_1": "Ho preso visione dell'<a href='https://meglioquesto.it/privacy-policy/' target='_blank'>Informativa</a> di MeglioQuesto Lead"
+}

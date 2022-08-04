@@ -60,12 +60,12 @@
             url_landing: location.origin + location.pathname,
             name: '-',
             surname: '-',
-            supplier: '{{ supplier }}' || 'SmartContact',
+            supplier: '{{ supplier }}',
             campaign_needcheck: true,
-            campaign: '{{ campaign }}' || '-',
-            channel: '{{ channel }}' || '-',
-            fornitore: '{{ fornitore }}' || 'SmartContact',
-            origin: '{{ origin }}' || 'SC',
+            campaign: '{{ campaign }}',
+            channel: '{{ channel }}',
+            fornitore: '{{ fornitore }}',
+            origin: '{{ origin }}',
             registration_date: new Date().toLocaleString('en-ZA').replace(',', ''),
             p1: `{{ p1 }}`
           }

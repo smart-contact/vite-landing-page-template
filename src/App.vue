@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { computed, defineComponent, onBeforeMount } from "vue";
+import { computed, defineComponent, onBeforeMount, inject } from "vue";
 import { breakpointsBootstrapV5, useBreakpoints } from "@vueuse/core";
 import {
   useProducts,
@@ -68,7 +68,6 @@ export default defineComponent({
       sendLead: this.sendLead,
     };
   },
-  inject: ["callMeBackFormOptions", "$bvModal"],
   setup() {
     const landing = useLanding();
     const { logoAccountMobile, logoAccount, account } = landing.params.get();
@@ -76,6 +75,8 @@ export default defineComponent({
     const lead = useLead({
       disableRecaptchaCheck: !landing.params.get("useRecaptcha"),
     });
+    const callMeBackFormOptions = inject("callMeBackFormOptions");
+    const $bvModal = inject("$bvModal");
 
     const breakpoints = useBreakpoints(breakpointsBootstrapV5);
     const accountLogos = [
@@ -156,6 +157,8 @@ export default defineComponent({
       sendLead,
       onProductSelected,
       modalEvents,
+      callMeBackFormOptions,
+      $bvModal,
     };
   },
 });

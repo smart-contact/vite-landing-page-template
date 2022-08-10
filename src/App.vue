@@ -23,9 +23,7 @@
       </template>
     </b-overlay>
 
-    <s-footer class="py-6 text-center" data-testid="footer">
-      <span v-html="landing.params.get('copyFooter')" />
-    </s-footer>
+    <mq-footer />
 
     <s-call-me-back-modal
       id="call-me-back-modal"
@@ -44,17 +42,17 @@ import {
   useLanding,
   HeaderBrands as SHeaderBrands,
   // CallMeBackForm as SCallMeBackForm,
-  Footer as SFooter,
   CallMeBackModal as SCallMeBackModal,
 } from "@smart-contact/smartify";
 import OverlayLoadingScreen from "@/components/OverlayLoadingScreen.vue";
+import MqFooter from "@/components/MqFooter.vue";
 
 export default defineComponent({
   name: "App",
   components: {
     SHeaderBrands,
     // SCallMeBackForm,
-    SFooter,
+    MqFooter,
     SCallMeBackModal,
     OverlayLoadingScreen,
   },

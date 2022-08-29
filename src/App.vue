@@ -66,8 +66,10 @@ export default defineComponent({
       sendLead: this.sendLead,
     };
   },
-  inject: ["callMeBackFormOptions", "$bvModal"],
+
   setup() {
+    const $bvModal = inject("$bvModal");
+    const callMeBackFormOptions = inject("callMeBackFormOptions");
     const landing = useLanding();
     const { logoAccountMobile, logoAccount, account } = landing.params.get();
     const products = useProducts();
@@ -121,7 +123,7 @@ export default defineComponent({
 
     const onProductSelected = (productIndex) => {
       products.setSelectedIndex(productIndex);
-      this.$bvModal.show("call-me-back-modal");
+      $bvModal.show("call-me-back-modal");
     };
 
     const modalEvents = {
@@ -153,6 +155,7 @@ export default defineComponent({
       landing,
       sendLead,
       onProductSelected,
+      callMeBackFormOptions,
       modalEvents,
     };
   },

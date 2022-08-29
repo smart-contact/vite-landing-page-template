@@ -124,7 +124,7 @@ export default defineComponent({
 
     const onProductSelected = (productIndex) => {
       products.setSelectedIndex(productIndex);
-      this.$bvModal.show("call-me-back-modal");
+      $bvModal.show("call-me-back-modal");
     };
 
     const modalEvents = {

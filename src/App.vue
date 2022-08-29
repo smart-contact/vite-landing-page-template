@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { computed, defineComponent, onBeforeMount } from "vue";
+import { computed, defineComponent, onBeforeMount, inject } from "vue";
 import { breakpointsBootstrapV5, useBreakpoints } from "@vueuse/core";
 import {
   useProducts,

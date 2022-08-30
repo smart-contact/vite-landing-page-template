@@ -29,6 +29,7 @@
       id="call-me-back-modal"
       :call-me-back-form-options="callMeBackFormOptions"
       v-on="modalEvents"
+      @submit="sendLead"
     />
   </div>
 </template>

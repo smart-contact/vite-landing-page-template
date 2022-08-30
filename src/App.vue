@@ -158,7 +158,6 @@ export default defineComponent({
       onProductSelected,
       modalEvents,
       callMeBackFormOptions,
-      $bvModal,
     };
   },
 });

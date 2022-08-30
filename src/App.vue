@@ -201,5 +201,8 @@ export default defineComponent({
       width: 100%;
     }
   }
+   input::placeholder {
+    font-size: 0.75em;
+  }
 }
 </style>

@@ -214,6 +214,10 @@ a {
     font-family: "gotham";
   }
 }
+ input::placeholder {
+    font-size: 0.75em;
+  }
+  
 #call-me-back-modal.modal .modal-content {
   color: $white;
   background-color: theme-color("tiscali");

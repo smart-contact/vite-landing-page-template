@@ -11,8 +11,9 @@ module.exports = {
     "plugin:prettier/recommended",
     "plugin:cypress/recommended",
   ],
+  parser: "vue-eslint-parser",
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: "latest",
     sourceType: "module",
   },
   plugins: ["vue"],

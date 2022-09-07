@@ -19,7 +19,7 @@
         <app-hero />
         <main>
           <app-features />
-          <app-offers />
+          <app-offers :product="mappedProducts" />
         </main>
       </template>
     </b-overlay>
@@ -39,8 +39,8 @@
   </div>
 </template>
 
-<script>
-import { computed, defineComponent, onBeforeMount } from "@vue/composition-api";
+<script setup>
+import { computed, provide, inject, computed, onBeforeMount } from "vue";
 import { breakpointsBootstrapV5, useBreakpoints } from "@vueuse/core";
 import {
   useProducts,
@@ -56,140 +56,102 @@ import AppFeatures from "@/components/AppFeatures.vue";
 import AppOffers from "@/components/AppOffers.vue";
 import contents from "@/../contents.js";
 import OverlayLoadingScreen from "@/components/OverlayLoadingScreen.vue";
-
-export default defineComponent({
-  name: "App",
-  components: {
-    SHeaderBrands,
-    // SCallMeBackForm,
-    SFooter,
-    SCallMeBackModal,
-    AppHero,
-    AppFeatures,
-    AppOffers,
-    OverlayLoadingScreen,
-  },
-  inject: ['callMeBackFormOptions'],
-  provide() {
-    return {
-      isMobile: this.breakpoints.smaller("md"),
-      isTablet: this.breakpoints.greater("sm"),
-      isDesk: this.breakpoints.greater("md"),
-      params: this.landing.params.get(),
-      onProductSelected: this.onProductSelected,
-      sendLead: this.sendLead,
-    };
-  },
-  data() {
-    return {
-      offers: contents.offers,
-      offersFeatures: contents.offersFeatures,
-    };
-  },
-  setup(_, context) {
-    const { $bvModal } = context.root;
-    const landing = useLanding();
-    const { logoAccountMobile, logoAccount, account } = landing.params.get();
-    const products = useProducts();
-    const lead = useLead({
-      disableRecaptchaCheck: !landing.params.get("useRecaptcha"),
-    });
-
-    const accountLogos = [
-      {
-        src: `${LIVELANDING_CDN_IMAGES_BASE_URL}/${logoAccount}`,
-        media: "(min-width: 768px)",
-      },
-      {
-        src: `${LIVELANDING_CDN_IMAGES_BASE_URL}/${logoAccountMobile}`,
-        alt: `logo ${account}`,
-        default: true,
-        media: "(max-width: 767.98px)",
-      },
-    ];
-
-    const buyerLogo = computed(() => {
-      const [buyer] = products.buyers.value;
-      return buyer
-        ? {
-            src: buyer.imageUrl,
-            alt: `logo ${buyer.name}`,
-          }
-        : {};
-    });
-
-    const breakpoints = useBreakpoints(breakpointsBootstrapV5);
-    const sendLead = async (data = {}) => {
-      const { successURL } = landing.params.get();
-      try {
-        if(window.dataLayer) {
-            window.dataLayer.push({
-            event: "form_submit",
-            eventCategory: "form",
-            eventAction: "submit_ok",
-            eventLabel: "call-back landing",
-          });
-        }
-        await lead.send(data);
-        if (successURL) {
-          window.location.href = successURL;
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    const onProductSelected = (productIndex) => {
-      products.setSelectedIndex(productIndex);
-      $bvModal.show("call-me-back-modal");
-    };
-
-     const modalEvents = {
-      show: () => {
-        if (products.selected.value != undefined) {
-          landing.data.set("buyer", products.selected.value.buyer.name);
-          landing.data.set("offer", products.selected.value.name);
-        }
-      },
-      hide: () => {
-        landing.data.restoreDefaults();
-        products.setSelectedIndex(undefined);
-      },
-    };
-
-    onBeforeMount(() => {
-      products.load({
-        // collection: landing.params.get('collection'),
-        productsIds: landing.params.get("products"),
-      });
-    });
-
-    return {
-      products,
-      breakpoints,
-      accountLogos,
-      buyerLogo,
-      lead,
-      landing,
-      sendLead,
-      onProductSelected,
-      modalEvents,
-    };
-  },
-    computed: {
-    mappedProducts() {
-      return ["luce", "gas"].map((type, i) => ({
-        name: this.products.items.value[i].name,
-        productIndex: i,
-        ...this.offers[i],
-        type,
-        ...this.products.items.value[i].prices[type],
-        alternative_price:
-          this.products.items.value[i].metadata[`alt_costo_${type}`],
-      }));
-    },
-  },
+ 
+const landing = useLanding();
+const { logoAccountMobile, logoAccount, account } = landing.params.get();
+const products = useProducts();
+const lead = useLead({
+  disableRecaptchaCheck: !landing.params.get("useRecaptcha"),
 });
+const callMeBackFormOptions = inject("callMeBackFormOptions");    const $bvModal = inject("$bvModal");
+const offers = contents.offers;
+
+const accountLogos = [
+  {
+    src: `${LIVELANDING_CDN_IMAGES_BASE_URL}/${logoAccount}`,
+    media: "(min-width: 768px)",
+  },
+  {
+    src: `${LIVELANDING_CDN_IMAGES_BASE_URL}/${logoAccountMobile}`,
+    alt: `logo ${account}`,
+    default: true,
+    media: "(max-width: 767.98px)",
+  },
+];
+
+const buyerLogo = computed(() => {
+  const [buyer] = products.buyers.value;
+  return buyer
+    ? {
+        src: buyer.imageUrl,
+        alt: `logo ${buyer.name}`,
+      }
+    : {};
+});
+
+const breakpoints = useBreakpoints(breakpointsBootstrapV5);
+
+const mappedProducts = computed(() => {
+  return ["luce", "gas"].map((type, i) => ({
+    name: products.items.value[i].name,
+    productIndex: i,
+    ...offers[i],
+    type,
+    ...products.items.value[i].prices[type],
+    alternative_price:
+      products.items.value[i].metadata[`alt_costo_${type}`],
+  }))
+});
+const sendLead = async (data = {}) => {
+  const { successURL } = landing.params.get();
+  try {
+    if(window.dataLayer) {
+        window.dataLayer.push({
+        event: "form_submit",
+        eventCategory: "form",
+        eventAction: "submit_ok",
+        eventLabel: "call-back landing",
+      });
+    }
+    await lead.send(data);
+    if (successURL) {
+      window.location.href = successURL;
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+const onProductSelected = (productIndex) => {
+  products.setSelectedIndex(productIndex);
+  $bvModal.show("call-me-back-modal");
+};
+
+const modalEvents = {
+  show: () => {
+    if (products.selected.value != undefined) {
+      landing.data.set("buyer", products.selected.value.buyer.name);
+      landing.data.set("offer", products.selected.value.name);
+    }
+  },
+  hide: () => {
+    landing.data.restoreDefaults();
+    products.setSelectedIndex(undefined);
+  },
+};
+
+onBeforeMount(() => {
+  products.load({
+    // collection: landing.params.get('collection'),
+    productsIds: landing.params.get("products"),
+  });
+});
+
+provide("isMobile", breakpoints.smaller("md"));
+provide("isTablet", breakpoints.greater("sm"));
+provide("isDesk", breakpoints.greater("md"));
+provide("params", landing.params.get());
+provide("onProductSelected", onProductSelected);
+provide("sendLead", sendLead);
 </script>
 
 <style lang="scss">

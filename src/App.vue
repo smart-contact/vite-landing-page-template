@@ -16,10 +16,10 @@
       </template>
 
       <template v-if="!products.loading.value">
-        <app-hero />
+        <!-- <app-hero /> -->
         <main>
-          <app-features />
-          <app-offers :product="mappedProducts" />
+          <!-- <app-features />
+          <app-offers :product="mappedProducts" /> -->
         </main>
       </template>
     </b-overlay>
@@ -40,7 +40,7 @@
 </template>
 
 <script setup>
-import { computed, provide, inject, computed, onBeforeMount } from "vue";
+import { computed, provide, inject, onBeforeMount } from "vue";
 import { breakpointsBootstrapV5, useBreakpoints } from "@vueuse/core";
 import {
   useProducts,
@@ -51,19 +51,20 @@ import {
   Footer as SFooter,
   CallMeBackModal as SCallMeBackModal,
 } from "@smart-contact/smartify";
-import AppHero from "@/components/AppHero.vue";
-import AppFeatures from "@/components/AppFeatures.vue";
-import AppOffers from "@/components/AppOffers.vue";
+// import AppHero from "@/components/AppHero.vue";
+// import AppFeatures from "@/components/AppFeatures.vue";
+// import AppOffers from "@/components/AppOffers.vue";
 import contents from "@/../contents.js";
 import OverlayLoadingScreen from "@/components/OverlayLoadingScreen.vue";
- 
+
 const landing = useLanding();
 const { logoAccountMobile, logoAccount, account } = landing.params.get();
 const products = useProducts();
 const lead = useLead({
   disableRecaptchaCheck: !landing.params.get("useRecaptcha"),
 });
-const callMeBackFormOptions = inject("callMeBackFormOptions");    const $bvModal = inject("$bvModal");
+const callMeBackFormOptions = inject("callMeBackFormOptions");
+const $bvModal = inject("$bvModal");
 const offers = contents.offers;
 
 const accountLogos = [
@@ -91,6 +92,7 @@ const buyerLogo = computed(() => {
 
 const breakpoints = useBreakpoints(breakpointsBootstrapV5);
 
+// eslint-disable-next-line no-unused-vars
 const mappedProducts = computed(() => {
   return ["luce", "gas"].map((type, i) => ({
     name: products.items.value[i].name,
@@ -98,15 +100,14 @@ const mappedProducts = computed(() => {
     ...offers[i],
     type,
     ...products.items.value[i].prices[type],
-    alternative_price:
-      products.items.value[i].metadata[`alt_costo_${type}`],
-  }))
+    alternative_price: products.items.value[i].metadata[`alt_costo_${type}`],
+  }));
 });
 const sendLead = async (data = {}) => {
   const { successURL } = landing.params.get();
   try {
-    if(window.dataLayer) {
-        window.dataLayer.push({
+    if (window.dataLayer) {
+      window.dataLayer.push({
         event: "form_submit",
         eventCategory: "form",
         eventAction: "submit_ok",
@@ -163,7 +164,7 @@ provide("sendLead", sendLead);
       width: 100%;
     }
   }
-   input::placeholder {
+  input::placeholder {
     font-size: 0.75em;
   }
 }

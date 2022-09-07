@@ -1,6 +1,6 @@
 import path from "path";
 import { defineConfig } from "vite";
-import vue from "vite-plugin-vue2";
+import vue from "@vitejs/plugin-vue2";
 import eslintPlugin from "vite-plugin-eslint";
 import landingParamsPlugin from "@smart-contact/vite-plugin-landing-page-params";
 import zip from "rollup-plugin-zip";
@@ -50,7 +50,7 @@ export default defineConfig(({ mode }) => {
   };
 
   if (mode === "production") {
-    config.base = landingConfig.cdnBaseURL + '/';
+    config.base = landingConfig.cdnBaseURL + "/";
     config.build.assetsDir = landingConfig.name;
     config.plugins.push(zip());
   }

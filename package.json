@@ -38,7 +38,6 @@
     "sass": "^1.43.4",
     "vite": "^3.0.9",
     "vite-plugin-eslint": "^1.8.1",
-    
     "@vitejs/plugin-vue2": "latest",
     "vue-template-compiler": "^2.6.14",
     "yarn-run-all": "^3.1.1",

@@ -8,20 +8,17 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "OverlayLoadingScreen",
-  props: {
-    logo: {
-      type: Object,
-      default: null,
-    },
-    spinnerVariant: {
-      type: String,
-      default: "primary",
-    },
+<script setup>
+defineProps({
+  logo: {
+    type: Object,
+    default: null,
   },
-};
+  spinnerVariant: {
+    type: String,
+    default: "primary",
+  },
+});
 </script>
 
 <style lang="scss">

@@ -12,6 +12,7 @@ Vue.mixin(getImageURLMixin);
 new Vue({
   provide() {
     return {
+      $bvModal: this.$bvModal,
       callMeBackFormOptions: {
         phoneFieldAttrs: {
           placeholder: "Inserisci il tuo numero di cellulare",

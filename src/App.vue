@@ -32,6 +32,8 @@
       size="md"
       v-on="modalEvents"
       title="Vuoi avere maggiori informazioni?"
+      :call-me-back-form-options="callMeBackFormOptions"
+      @submit="sendLead"
     >
       <div class="mb-3">
         Un consulente ti contatterà per fornirti tutte le informazioni
@@ -42,8 +44,8 @@
   </div>
 </template>
 
-<script>
-import { computed, defineComponent, onBeforeMount } from "@vue/composition-api";
+<script setup>
+import { provide, inject, onBeforeMount } from "vue";
 import { breakpointsBootstrapV5, useBreakpoints } from "@vueuse/core";
 import {
   useProducts,
@@ -56,116 +58,81 @@ import {
 import OverlayLoadingScreen from "@/components/OverlayLoadingScreen.vue";
 import CallMeBackForm from "@/components/CallMeBackFormIren.vue";
 
-export default defineComponent({
-  name: "App",
-  components: {
-    CallMeBackForm,
-    SHeaderBrands,
-    SFooter,
-    OverlayLoadingScreen,
-  },
-  provide() {
-    return {
-      isMobile: this.breakpoints.smaller("md"),
-      isTablet: this.breakpoints.greater("sm"),
-      isDesk: this.breakpoints.greater("md"),
-      params: this.landing.params.get(),
-      onProductSelected: this.onProductSelected,
-      sendLead: this.sendLead,
-    };
-  },
-  inject: ["callMeBackFormOptions"],
-  setup(_, context) {
-    const { $bvModal } = context.root;
-    const landing = useLanding();
-    const { logoAccountMobile, logoAccount, account } = landing.params.get();
-    const products = useProducts();
-    const lead = useLead({
-      disableRecaptchaCheck: !landing.params.get("useRecaptcha"),
-    });
+const callMeBackFormOptions = inject("callMeBackFormOptions");
+const $bvModal = inject("$bvModal");
 
-    const breakpoints = useBreakpoints(breakpointsBootstrapV5);
-    const accountLogos = [
-      {
-        src: `https://smart-contact-cdn.livelanding.it/images/${logoAccount}`,
-        media: "(min-width: 768px)",
-      },
-      {
-        src: `https://smart-contact-cdn.livelanding.it/images/${logoAccountMobile}`,
-        alt: `logo ${account}`,
-        default: true,
-        media: "(max-width: 767.98px)",
-      },
-    ];
-
-    const buyerLogo = computed(() => {
-      const [buyer] = products.buyers.value;
-      return buyer
-        ? {
-            src: buyer.imageUrl,
-            alt: `logo ${buyer.name}`,
-          }
-        : {};
-    });
-
-    const sendLead = async (data = {}) => {
-      const { successURL } = landing.params.get();
-      try {
-        if (window.dataLayer) {
-          window.dataLayer.push({
-            event: "form_submit",
-            eventCategory: "form",
-            eventAction: "submit_ok",
-            eventLabel: "call-back landing",
-          });
-        }
-        await lead.send(data);
-        if (successURL) {
-          window.location.href = successURL;
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    const onProductSelected = (productIndex) => {
-      products.setSelectedIndex(productIndex);
-      $bvModal.show("call-me-back-modal");
-    };
-
-    const modalEvents = {
-      show: () => {
-        if (products.selected.value != undefined) {
-          landing.data.set("buyer", products.selected.value.buyer.name);
-          landing.data.set("offer", products.selected.value.name);
-        }
-      },
-      hide: () => {
-        landing.data.restoreDefaults();
-        products.setSelectedIndex(undefined);
-      },
-    };
-
-    onBeforeMount(() => {
-      products.load({
-        // collection: landing.params.get('collection'),
-        productsIds: landing.params.get("products"),
-      });
-    });
-
-    return {
-      breakpoints,
-      products,
-      accountLogos,
-      buyerLogo,
-      lead,
-      landing,
-      sendLead,
-      onProductSelected,
-      modalEvents,
-    };
-  },
+const landing = useLanding();
+const { logoAccountMobile, logoAccount, account } = landing.params.get();
+const products = useProducts();
+const lead = useLead({
+  disableRecaptchaCheck: !landing.params.get("useRecaptcha"),
 });
+
+const breakpoints = useBreakpoints(breakpointsBootstrapV5);
+const accountLogos = [
+  {
+    src: `https://smart-contact-cdn.livelanding.it/images/${logoAccount}`,
+    media: "(min-width: 768px)",
+  },
+  {
+    src: `https://smart-contact-cdn.livelanding.it/images/${logoAccountMobile}`,
+    alt: `logo ${account}`,
+    default: true,
+    media: "(max-width: 767.98px)",
+  },
+];
+
+const sendLead = async (data = {}) => {
+  const { successURL } = landing.params.get();
+  try {
+    if (window.dataLayer) {
+      window.dataLayer.push({
+        event: "form_submit",
+        eventCategory: "form",
+        eventAction: "submit_ok",
+        eventLabel: "call-back landing",
+      });
+    }
+    await lead.send(data);
+    if (successURL) {
+      window.location.href = successURL;
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const onProductSelected = (productIndex) => {
+  products.setSelectedIndex(productIndex);
+  $bvModal.show("call-me-back-modal");
+};
+
+const modalEvents = {
+  show: () => {
+    if (products.selected.value != undefined) {
+      landing.data.set("buyer", products.selected.value.buyer.name);
+      landing.data.set("offer", products.selected.value.name);
+    }
+  },
+  hide: () => {
+    landing.data.restoreDefaults();
+    products.setSelectedIndex(undefined);
+  },
+};
+
+onBeforeMount(() => {
+  products.load({
+    // collection: landing.params.get('collection'),
+    productsIds: landing.params.get("products"),
+  });
+});
+
+provide("isMobile", breakpoints.smaller("md"));
+provide("isTablet", breakpoints.greater("sm"));
+provide("isDesk", breakpoints.greater("md"));
+provide("params", landing.params.get());
+provide("onProductSelected", onProductSelected);
+provide("sendLead", sendLead);
 </script>
 
 <style lang="scss">
@@ -177,7 +144,7 @@ export default defineComponent({
       width: 100%;
     }
   }
-   input::placeholder {
+  input::placeholder {
     font-size: 0.75em;
   }
 }

@@ -5,6 +5,7 @@
       :left-logo="buyerLogo"
       :right-logo="accountLogos"
       data-testid="header-brands"
+      @click="landing.params.get('useHeaderScroll') && scrollTo()"
     />
 
     <b-overlay :show="products.loading.value" spinner-variant="primary">
@@ -60,6 +61,9 @@ const callMeBackFormOptions = inject("callMeBackFormOptions");
 const $bvModal = inject("$bvModal");
 
 const breakpoints = useBreakpoints(breakpointsBootstrapV5);
+const scrollTo = (selector) => {
+  document.querySelector(selector)?.scrollIntoView();
+};
 const accountLogos = [
   {
     src: `${LIVELANDING_CDN_IMAGES_BASE_URL}/${logoAccount}`,

@@ -30,6 +30,7 @@
             products: { value: '{{ products }}', default: '1,3', parser: value => JSON.parse('[' + value + ']') },
             sap: { value: '{{ sap }}', default: '' },
             useFo: { value: '{{ useFo }}', default: '0', parser: value => !!Number(value) },
+            useHeaderScroll: { value: '{{ useHeaderScroll }}', default: '1', parser: value => !!Number(value) },
             successURL: '{{ successURL }}',
             collapseToggleText: '{{ collapseToggleText }}',
             account: { value: '{{ account }}', default: 'prezzogiusto' },

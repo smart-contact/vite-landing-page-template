@@ -58,6 +58,7 @@
             products: { value: '{{ products }}', parser: value => JSON.parse('[' + value + ']') },
             sap: '{{ sap }}',
             useFo: { value: '{{ useFo }}', default: '0', parser: value => !!Number(value) },
+            useHeaderScroll: { value: '{{ useHeaderScroll }}', default: '1', parser: value => !!Number(value) },
             successURL: '{{ successURL }}',
             collapseToggleText: '{{ collapseToggleText }}',
             useRecaptcha: { value: '{{ useRecaptcha }}', default: "0", parser: value => !!Number(value) },

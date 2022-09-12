@@ -5,6 +5,7 @@
       :left-logo="buyerLogo"
       :right-logo="accountLogos"
       data-testid="header-brands"
+      @click="landing.params.get('useHeaderScroll') && scrollTo()"
     />
 
     <b-overlay :show="products.loading.value" spinner-variant="primary">
@@ -91,6 +92,9 @@ const buyerLogo = computed(() => {
 });
 
 const breakpoints = useBreakpoints(breakpointsBootstrapV5);
+const scrollTo = (selector) => {
+  document.querySelector(selector)?.scrollIntoView();
+};
 
 // eslint-disable-next-line no-unused-vars
 const mappedProducts = computed(() => {

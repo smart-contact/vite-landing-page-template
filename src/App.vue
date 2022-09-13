@@ -141,6 +141,10 @@ provide("sendLead", sendLead);
 </script>
 
 <style lang="scss">
+html {
+  scroll-behavior: smooth;
+}
+
 #app {
   .b-overlay {
     min-height: calc(100vh - #{$s-header-brands-logo-height + (spacer(5) * 2)});

@@ -20,7 +20,7 @@
         <!-- <app-hero /> -->
         <main>
           <!-- <app-features />
-          <app-offers :product="mappedProducts" /> -->
+          <app-offers :products="mappedProducts" /> -->
         </main>
       </template>
     </b-overlay>
@@ -97,6 +97,7 @@ const scrollTo = (selector) => {
 // eslint-disable-next-line no-unused-vars
 const mappedProducts = computed(() => {
   return ["luce", "gas"].map((type, i) => ({
+    ...products.items.value[i],
     name: products.items.value[i].name,
     productIndex: i,
     type,

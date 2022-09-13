@@ -55,7 +55,6 @@ import {
 // import AppHero from "@/components/AppHero.vue";
 // import AppFeatures from "@/components/AppFeatures.vue";
 // import AppOffers from "@/components/AppOffers.vue";
-import contents from "@/../contents.js";
 import OverlayLoadingScreen from "@/components/OverlayLoadingScreen.vue";
 
 const landing = useLanding();
@@ -66,7 +65,6 @@ const lead = useLead({
 });
 const callMeBackFormOptions = inject("callMeBackFormOptions");
 const $bvModal = inject("$bvModal");
-const offers = contents.offers;
 
 const accountLogos = [
   {
@@ -101,7 +99,6 @@ const mappedProducts = computed(() => {
   return ["luce", "gas"].map((type, i) => ({
     name: products.items.value[i].name,
     productIndex: i,
-    ...offers[i],
     type,
     ...products.items.value[i].prices[type],
     alternative_price: products.items.value[i].metadata[`alt_costo_${type}`],

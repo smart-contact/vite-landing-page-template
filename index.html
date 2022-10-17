@@ -161,7 +161,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         data() {
           return {
-            url_landing: this.url.toString(),
+            url_landing: this.url.origin + this.url.pathname,
             utm_source: this.url.searchParams.get('utm_source') || '0',
             utm_medium: this.url.searchParams.get('utm_medium') || '0',
             utm_campaign: this.url.searchParams.get('utm_campaign') || '0',

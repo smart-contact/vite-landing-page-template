@@ -58,7 +58,7 @@
             "&privacy_4": `{{ privacy_4 }}`,
 
             //tracking
-            gclid: this.url.searchParams.get('gclid'),
+            gclid: { value: this.url.searchParams.get('gclid') || '-', default: '-' },
             f5: { value: this.url.searchParams.get('f5') || '{{ f5 }}', default: 'sem' },
             f11: { value: this.url.searchParams.get('f11') || '{{ f11 }}', default: '0' },
             f12: { value: this.url.searchParams.get('keyword') || '0' },

@@ -27,7 +27,9 @@
   <!-- @{{ GoogleTagManagerBody }} -->
 
   <div id="app"></div>
-
+  <script>
+    window.fbq = fbq;
+  </script>
   <script>
     window.$landingConfig = {
       config: {
@@ -40,6 +42,7 @@
             useFo: { value: '{{ useFo }}', default: '0', parser: value => !!Number(value) },
             useHeaderScroll: { value: '{{ useHeaderScroll }}', default: '1', parser: value => !!Number(value) },
             successURL: '{{ successURL }}',
+            fb_pixel_conversion_api: { value: '{{ fb_pixel_conversion_api }}' },
             useRecaptcha: { value: '{{ useRecaptcha }}', default: "0", parser: value => !!Number(value) },
             collapseToggleText: '{{ collapseToggleText }}',
             account: { value: '{{ account }}', default: 'prezzogiusto' },

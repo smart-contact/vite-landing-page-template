@@ -98,12 +98,26 @@ const sendLead = async (data = {}) => {
         eventLabel: "call-back landing",
       });
     }
+    sendPixelConversion(data);
     await lead.send(data);
     if (successURL) {
       window.location.href = successURL;
     }
   } catch (err) {
     console.log(err);
+  }
+};
+
+const sendPixelConversion = () => {
+  if (landing.params.fb_pixel_conversion_api && window.fbq) {
+    const eventID = Date.now().toString();
+
+    window.fbq("track", "Lead", {}, { eventID: eventID });
+
+    landing.data.set("fb_api_conversion", true);
+    landing.data.set("fb_pixel", landing.params.fb_pixel_conversion_api);
+    landing.data.set("fb_event_id", eventID);
+    landing.data.set("fb_event_name", "Lead");
   }
 };
 

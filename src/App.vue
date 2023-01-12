@@ -87,6 +87,19 @@ const buyerLogo = computed(() => {
     : {};
 });
 
+
+const sendPixelConversion = () => {
+  const { fb_pixel_conversion_api } = landing.params.get();
+  if (fb_pixel_conversion_api && window.fbq) {
+    const eventID = Date.now().toString();
+    window.fbq("track", "Lead", {}, { eventID: eventID });
+    landing.data.set("fb_api_conversion", true);
+    landing.data.set("fb_pixel", fb_pixel_conversion_api);
+    landing.data.set("fb_event_id", eventID);
+    landing.data.set("fb_event_name", "Lead");
+  }
+};
+
 const sendLead = async (data = {}) => {
   const { successURL } = landing.params.get();
   try {
@@ -108,18 +121,6 @@ const sendLead = async (data = {}) => {
   }
 };
 
-const sendPixelConversion = () => {
-  if (landing.params.fb_pixel_conversion_api && window.fbq) {
-    const eventID = Date.now().toString();
-
-    window.fbq("track", "Lead", {}, { eventID: eventID });
-
-    landing.data.set("fb_api_conversion", true);
-    landing.data.set("fb_pixel", landing.params.fb_pixel_conversion_api);
-    landing.data.set("fb_event_id", eventID);
-    landing.data.set("fb_event_name", "Lead");
-  }
-};
 
 const onProductSelected = (productIndex) => {
   products.setSelectedIndex(productIndex);

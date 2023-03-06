@@ -135,7 +135,8 @@
           f14: landing.params.get('f14'),
           f15: landing.params.get('f15'),
           f18: landing.params.get('f18'),
-          pixelId: landing.params.get('f12')
+          pixelId: landing.params.get('f12'),
+          utm_source: urlParams.utm_source || '-'
         };
         Object.entries(urlParams).forEach(([key, value]) => {
           if (!paramsMap.hasOwnProperty(key) && value !== undefined && value !== '') {

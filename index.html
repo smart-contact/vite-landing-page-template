@@ -46,6 +46,9 @@
             const transaction_id = Date.now().toString();
             landing.params.set('f11', landing.url.searchParams.get('aff_id') || '-');
             break;
+          case 'vertigo':
+            landing.params.set('f12', landing.url.searchParams.get('utm_source') || '-');
+            break;
         }
       }
     };

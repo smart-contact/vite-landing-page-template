@@ -103,20 +103,17 @@
           switch (new Date().getDay()) {
             //sabato
             case 6:
-              landing.scheduleBetween('10:00:00', '11:00:00', () => {
-                landing.data.set('sap', landing.params.get('sap') + '_second');
-              });
-              landing.scheduleBetween('14:00:00', '15:00:00', () => {
+              landing.scheduleBetween('09:00:00', '21:00:00', () => {
                 landing.data.set('sap', landing.params.get('sap') + '_second');
               });
               break;
             //domenica
-            case 0:
-              landing.data.set('sap', landing.params.get('sap') + '_third');
-              break;
+            // case 0:
+            //   landing.data.set('sap', landing.params.get('sap') + '_third');
+            //   break;
             //da lunedì a venerdì
             default:
-              landing.scheduleBetween('19:45:00', '20:45:00', () => {
+              landing.scheduleBetween('16:45:00', '20:59:00', () => {
                 landing.data.set('sap', landing.params.get('sap') + '_second');
               });
               break;

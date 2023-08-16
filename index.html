@@ -55,6 +55,12 @@
           case 'vertigo':
             landing.params.set('f12', landing.url.searchParams.get('utm_source') || '-');
             break;
+          case "hinto":
+              landing.params.set(
+                "f13",
+                landing.url.searchParams.get("dbID") || "-"
+              );
+              break;
         }
       }
     };

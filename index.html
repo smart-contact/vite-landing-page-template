@@ -8,11 +8,11 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/png" sizes="32x32"
     href="https://smart-contact-cdn.livelanding.it/images/favicon-{{ account }}.png">
-  <title></title>
+  <title>{{ pageTitle }}</title>
 
-  <!-- @{{ GoogleGlobalSiteTag }} -->
+   <!-- @{{ GoogleAdsDataLayerPageView }} -->
   <!-- @{{ GoogleTagManagerHead }} -->
-  <!-- @{{ ClarityScript }} -->
+  <!-- @{{ privacyModalScript }} -->
 </head>
 
 <body>
@@ -33,9 +33,9 @@
             useHeaderScroll: { value: '{{ useHeaderScroll }}', default: '1', parser: value => !!Number(value) },
             successURL: '{{ successURL }}',
             collapseToggleText: '{{ collapseToggleText }}',
-            account: { value: '{{ account }}', default: 'prezzogiusto' },
-            logoAccount: { value: '{{ accountLogo }}', default: 'logo-prezzogiusto.svg' },
-            logoAccountMobile: { value: '{{ accountLogoMobile }}', default: 'logo-prezzogiusto-small.png' },
+            account: { value: '{{ account }}', default: 'meglioquesto' },
+            logoAccount: { value: '{{ accountLogo }}', default: 'logo-meglioQuesto.png' },
+            logoAccountMobile: { value: '{{ accountLogoMobile }}', default: 'logo-meglioQuesto-mobile.png' },
 
             //copy
             copyTitle: `{{ copyTitle }}`,
@@ -43,10 +43,11 @@
             copyFooter: `{{ copyFooter }}`,
 
             //privacy
-            "*privacy_1": `{{ p1 }}`,
+            "*privacy_1": `{{ privacy_1 }}`,
 
             //tracking
             gclid: this.url.searchParams.get('gclid'),
+            f4: { value: this.url.searchParams.get('f4') || '{{ f4 }}', default: '-' },
             f5: { value: this.url.searchParams.get('f5') || '{{ f5 }}', default: 'sem' },
             f11: { value: this.url.searchParams.get('f11') || '{{ f11 }}', default: '0' },
             f12: { value: this.url.searchParams.get('keyword') || '0' },
@@ -62,14 +63,9 @@
             url_landing: location.origin + location.pathname,
             name: '-',
             surname: '-',
-            supplier: '{{ supplier }}',
-            campaign_needcheck: true,
-            campaign: '{{ campaign }}',
-            channel: '{{ channel }}',
-            fornitore: '{{ fornitore }}',
-            origin: '{{ origin }}',
-            registration_date: new Date().toLocaleString('en-ZA').replace(',', ''),
-            p1: `{{ p1 }}`
+            offer:'-',
+            supplier_name: '-',
+            
           }
         },
 
@@ -81,7 +77,7 @@
       },
       options: {},
       afterInit(landing) {
-        landing.mapParamsToData(['gclid as idorigine', 'sap', 'f5', 'f11', 'f12', 'f13', 'f14', 'f15', 'f18']);
+        landing.mapParamsToData(['gclid as idorigine', 'sap', 'f4','f5', 'f11', 'f12', 'f13', 'f14', 'f15', 'f18']);
         if (landing.params.get('useFo')) {
           landing.scheduleBetween('21:00:00', '09:00:00', () => {
             landing.data.set('sap', landing.params.get('sap') + '_fo');

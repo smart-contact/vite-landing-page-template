@@ -24,7 +24,7 @@
       </template>
     </b-overlay>
 
-    <mq-footer />
+    <mo-footer />
 
     <s-call-me-back-modal
       id="call-me-back-modal"
@@ -47,7 +47,7 @@ import {
   CallMeBackModal as SCallMeBackModal,
 } from "@smart-contact/smartify";
 import OverlayLoadingScreen from "@/components/OverlayLoadingScreen.vue";
-import MqFooter from "@/components/MqFooter.vue";
+import MoFooter from "@/components/MoFooter.vue";
 
 const $bvModal = inject("$bvModal");
 const callMeBackFormOptions = inject("callMeBackFormOptions");

@@ -10,7 +10,7 @@
     href="https://smart-contact-cdn.livelanding.it/images/favicon-{{ account }}.png">
   <title>{{ pageTitle }}</title>
 
-   <!-- @{{ GoogleAdsDataLayerPageView }} -->
+  <!-- @{{ GoogleAdsDataLayerPageView }} -->
   <!-- @{{ GoogleTagManagerHead }} -->
   <!-- @{{ privacyModalScript }} -->
 </head>
@@ -33,9 +33,9 @@
             useHeaderScroll: { value: '{{ useHeaderScroll }}', default: '1', parser: value => !!Number(value) },
             successURL: '{{ successURL }}',
             collapseToggleText: '{{ collapseToggleText }}',
-            account: { value: '{{ account }}', default: 'meglioquesto' },
-            logoAccount: { value: '{{ accountLogo }}', default: 'logo-meglioQuesto.png' },
-            logoAccountMobile: { value: '{{ accountLogoMobile }}', default: 'logo-meglioQuesto-mobile.png' },
+            account: { value: '{{ account }}', default: 'le-migliori-offerte' },
+            logoAccount: { value: '{{ accountLogo }}', default: 'logo-leMiglioriOfferte-horizontal.png' },
+            logoAccountMobile: { value: '{{ accountLogoMobile }}', default: 'logo-leMiglioriOfferte-horizontal.png' },
 
             //copy
             copyTitle: `{{ copyTitle }}`,
@@ -66,9 +66,9 @@
             url_landing: location.origin + location.pathname,
             name: '-',
             surname: '-',
-            offer:'-',
+            offer: '-',
             supplier_name: '-',
-            
+
           }
         },
 
@@ -80,7 +80,7 @@
       },
       options: {},
       afterInit(landing) {
-        landing.mapParamsToData(['gclid as idorigine', 'sap', 'f4','f5', 'f11', 'f12', 'f13', 'f14', 'f15', 'f18']);
+        landing.mapParamsToData(['gclid as idorigine', 'sap', 'f4', 'f5', 'f11', 'f12', 'f13', 'f14', 'f15', 'f18']);
         if (landing.params.get('useFo')) {
           landing.scheduleBetween('21:00:00', '09:00:00', () => {
             landing.data.set('sap', landing.params.get('sap') + '_fo');
@@ -119,7 +119,7 @@
   </script>
 
   <script type="module" src="/src/main.js"></script>
-   <!-- @{{ privacyModalElement }} -->
+  <!-- @{{ privacyModalElement }} -->
 </body>
 
 </html>

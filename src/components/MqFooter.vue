@@ -2,6 +2,7 @@
   <footer class="footer mt-6 py-6" data-testid="footer">
     <div class="container">
       <div class="logo d-flex justify-content-center">
+      <div>MIGLIORI OFFERTE</div>
         <img
           src="https://smart-contact-cdn.livelanding.it/images/logo-meglioQuesto-mobile.png"
           alt="logo MeglioQuesto"

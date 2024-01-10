@@ -1,13 +1,5 @@
 <template>
   <div id="app">
-    <s-header-brands
-      class="py-5"
-      :left-logo="buyerLogo"
-      :right-logo="accountLogos"
-      data-testid="header-brands"
-      @click="landing.params.get('useHeaderScroll') && scrollTo()"
-    />
-
     <b-overlay :show="products.loading.value" spinner-variant="primary">
       <template #overlay="{ spinnerVariant }">
         <overlay-loading-screen
@@ -25,32 +17,22 @@
     </b-overlay>
 
     <mo-footer />
-
-    <s-call-me-back-modal
-      id="call-me-back-modal"
-      :call-me-back-form-options="callMeBackFormOptions"
-      v-on="modalEvents"
-      @submit="sendLead"
-    />
   </div>
 </template>
 
 <script setup>
-import { computed, provide, onBeforeMount, inject } from "vue";
+import { provide, onBeforeMount, inject } from "vue";
 import { breakpointsBootstrapV5, useBreakpoints } from "@vueuse/core";
 import {
   useProducts,
   useLead,
   useLanding,
-  HeaderBrands as SHeaderBrands,
   // CallMeBackForm as SCallMeBackForm,
-  CallMeBackModal as SCallMeBackModal,
-} from "@smart-contact/smartify";
+} from "@smart-contact/smartify-2.0";
 import OverlayLoadingScreen from "@/components/OverlayLoadingScreen.vue";
 import MoFooter from "@/components/MoFooter.vue";
 
 const $bvModal = inject("$bvModal");
-const callMeBackFormOptions = inject("callMeBackFormOptions");
 const landing = useLanding();
 const { logoAccountMobile, logoAccount, account } = landing.params.get();
 const products = useProducts();
@@ -59,9 +41,9 @@ const lead = useLead({
 });
 
 const breakpoints = useBreakpoints(breakpointsBootstrapV5);
-const scrollTo = (selector) => {
-  document.querySelector(selector)?.scrollIntoView();
-};
+// const scrollTo = (selector) => {
+//   document.querySelector(selector)?.scrollIntoView();
+// };
 const accountLogos = [
   {
     src: `${LIVELANDING_CDN_IMAGES_BASE_URL}/${logoAccount}`,
@@ -75,15 +57,15 @@ const accountLogos = [
   },
 ];
 
-const buyerLogo = computed(() => {
-  const [buyer] = products.buyers.value;
-  return buyer
-    ? {
-        src: buyer.imageUrl,
-        alt: `logo ${buyer.name}`,
-      }
-    : {};
-});
+// const buyerLogo = computed(() => {
+//   const [buyer] = products.buyers.value;
+//   return buyer
+//     ? {
+//         src: buyer.imageUrl,
+//         alt: `logo ${buyer.name}`,
+//       }
+//     : {};
+// });
 
 const sendLead = async (data = {}) => {
   const { successURL } = landing.params.get();
@@ -110,18 +92,18 @@ const onProductSelected = (productIndex) => {
   $bvModal.show("call-me-back-modal");
 };
 
-const modalEvents = {
-  show: () => {
-    if (products.selected.value != undefined) {
-      landing.data.set("buyer", products.selected.value.buyer.name);
-      landing.data.set("offer", products.selected.value.name);
-    }
-  },
-  hide: () => {
-    landing.data.restoreDefaults();
-    products.setSelectedIndex(undefined);
-  },
-};
+// const modalEvents = {
+//   show: () => {
+//     if (products.selected.value != undefined) {
+//       landing.data.set("buyer", products.selected.value.buyer.name);
+//       landing.data.set("offer", products.selected.value.name);
+//     }
+//   },
+//   hide: () => {
+//     landing.data.restoreDefaults();
+//     products.setSelectedIndex(undefined);
+//   },
+// };
 
 onBeforeMount(() => {
   products.load({

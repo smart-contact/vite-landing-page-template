@@ -31,10 +31,9 @@ export default defineConfig(({ mode }) => {
             `@import "bootstrap/scss/variables"`,
             `@import "bootstrap/scss/mixins"`,
             `@import "bootstrap-vue/src/variables"`,
-            `@import "@smart-contact/smartify/src/scss/functions"`,
-            `@import "@/assets/scss/vendors/smartify/custom"`,
-            `@import "@smart-contact/smartify/src/scss/variables"`,
-            `@import "@smart-contact/smartify/src/scss/mixins/layout"`,
+            `@import "@smart-contact/smartify-2.0/src/scss/functions"`,
+            `@import "@smart-contact/smartify-2.0/src/scss/variables"`,
+            `@import "@smart-contact/smartify-2.0/src/scss/mixins/layout"`,
             "",
           ].join(";\n"),
         },
@@ -50,7 +49,7 @@ export default defineConfig(({ mode }) => {
   };
 
   if (mode === "production") {
-    config.base = landingConfig.cdnBaseURL + '/';
+    config.base = landingConfig.cdnBaseURL + "/";
     config.build.assetsDir = landingConfig.name;
     config.plugins.push(zip());
   }

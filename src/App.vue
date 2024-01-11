@@ -17,7 +17,7 @@
       </template>
 
       <template v-if="!products.loading.value">
-        <!-- app-hero -->
+        <call-me-back-form @submit="sendLead" />
         <main>
           <!-- sections -->
         </main>
@@ -43,7 +43,7 @@ import {
   useLead,
   useLanding,
   HeaderBrands as SHeaderBrands,
-  // CallMeBackForm as SCallMeBackForm,
+  CallMeBackForm,
   CallMeBackModal as SCallMeBackModal,
 } from "@smart-contact/smartify";
 import OverlayLoadingScreen from "@/components/OverlayLoadingScreen.vue";
@@ -96,7 +96,29 @@ const sendLead = async (data = {}) => {
         eventLabel: "call-back landing",
       });
     }
-    await lead.send(data);
+    await lead.send({
+      name: data.name ?? "-",
+      surname: data.surname ?? "-",
+      phone: data.phone,
+      privacy_1: data.privacies.privacy_1,
+      privacy_2: data.privacies.privacy_2,
+      additional_data: JSON.stringify({
+        f4: landing.params.get("f4"),
+        f5: landing.params.get("f5"),
+        f11: landing.params.get("f11"),
+        f12: landing.params.get("f12"),
+        f13: landing.params.get("f13"),
+        f14: landing.params.get("f14"),
+        f15: landing.params.get("f15"),
+        f18: landing.params.get("f18"),
+        offer: landing.data.get("offer"),
+        privacy_3: data.privacies.privacy_3,
+        privacy_4: data.privacies.privacy_4,
+        supplier_name: landing.params.get("supplier_name"),
+        url_landing: landing.data.get("url_landing"),
+        other_info: landing.data.get("other_info") ?? "-",
+      }),
+    });
     if (successURL) {
       window.location.href = successURL;
     }

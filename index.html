@@ -27,9 +27,11 @@
           return {
             //functional
             // collection: { value: '{{ collection }}', default: '' },
-            products: { value: '{{ products }}', default: '1,3', parser: value => JSON.parse('[' + value + ']') },
-            sap: { value: '{{ sap }}', default: '' },
-            token_in: { value: '{{ token_in }}', default: '' },
+            products: { value: '{{ products }}', default: '928,950', parser: value => JSON.parse('[' + value + ']') },
+            sap: { value: '{{ sap }}', default: 'sap test' },
+            campagna_riferimento: { value: '{{ campagna_riferimento }}', default: 'campagna test' },
+            token_in: { value: '{{ token_in }}', default: '1234' },
+            supplier_name: { value: '{{ supplier_name }}', default: '1234' },
             useFo: { value: '{{ useFo }}', default: '0', parser: value => !!Number(value) },
             useHeaderScroll: { value: '{{ useHeaderScroll }}', default: '1', parser: value => !!Number(value) },
             successURL: '{{ successURL }}',
@@ -68,9 +70,6 @@
             name: '-',
             surname: '-',
             offer: '-',
-            supplier_name: '-',
-            token_in: '{{ token_in }}',
-
           }
         },
 
@@ -82,7 +81,7 @@
       },
       options: {},
       afterInit(landing) {
-        landing.mapParamsToData(['gclid as idorigine', 'sap', 'f4', 'f5', 'f11', 'f12', 'f13', 'f14', 'f15', 'f18']);
+        landing.mapParamsToData(['gclid as idorigine', 'sap', 'campagna_riferimento', 'token_in']);
         if (landing.params.get('useFo')) {
           landing.scheduleBetween('21:00:00', '09:00:00', () => {
             landing.data.set('sap', landing.params.get('sap') + '_fo');

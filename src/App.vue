@@ -17,7 +17,6 @@
       </template>
 
       <template v-if="!products.loading.value">
-        <call-me-back-form @submit="sendLead" />
         <main>
           <!-- sections -->
         </main>
@@ -43,7 +42,6 @@ import {
   useLead,
   useLanding,
   HeaderBrands as SHeaderBrands,
-  CallMeBackForm,
   CallMeBackModal as SCallMeBackModal,
 } from "@smart-contact/smartify";
 import OverlayLoadingScreen from "@/components/OverlayLoadingScreen.vue";

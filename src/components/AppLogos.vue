@@ -1,54 +1,54 @@
 <template>
   <section>
     <div class="logos">
-      <div v-if="props.rightLogo">
+      <div v-if="rightLogo">
         <picture>
           <source
             media="(min-width: 768px)"
-            :srcset="props.rightLogo[0].src"
+            :srcset="rightLogo[0].src"
             alt="prezzogiusto"
             height="42"
             width="271"
           />
           <source
             media="(max-width: 767.98px)"
-            :srcset="props.rightLogo[1].src"
+            :srcset="rightLogo[1].src"
             alt="prezzogiusto"
             width="150"
             height="30"
           />
 
           <img
-            :src="props.rightLogo[0].src"
+            :src="rightLogo[0].src"
             alt="prezzogiusto"
             width="271"
             height="42"
           />
         </picture>
       </div>
-      <div v-if="props.leftLogo">
+      <div v-if="leftLogo">
         <picture>
           <source
             media="(min-width: 768px)"
-            :srcset="props.leftLogo.src"
+            :srcset="leftLogo.src"
             alt=""
             height="40"
           />
           <source
             media="(max-width: 767.98px)"
-            :srcset="props.leftLogo.src"
+            :srcset="leftLogo.src"
             alt=""
             height="30"
           />
 
-          <img :src="props.leftLogo.src" alt="" />
+          <img :src="leftLogo.src" alt="" />
         </picture>
       </div>
     </div>
   </section>
 </template>
 <script setup>
-const props = defineProps({
+defineProps({
   leftLogo: {
     type: [Object, Array],
     default: null,

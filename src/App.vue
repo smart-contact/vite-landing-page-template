@@ -1,5 +1,10 @@
 <template>
   <div id="app">
+    <app-logos
+      @click="landing.params.get('useHeaderScroll') && scrollTo('#appOffers')"
+      :left-logo="buyerLogo"
+      :right-logo="accountLogos"
+    />
     <b-overlay :show="products.loading.value" spinner-variant="primary">
       <template #overlay="{ spinnerVariant }">
         <overlay-loading-screen
@@ -21,7 +26,7 @@
 </template>
 
 <script setup>
-import { provide, onBeforeMount, inject } from "vue";
+import { provide, onBeforeMount, inject, computed } from "vue";
 import { breakpointsBootstrapV5, useBreakpoints } from "@vueuse/core";
 import {
   useProducts,
@@ -31,6 +36,7 @@ import {
 } from "@smart-contact/smartify-2.0";
 import OverlayLoadingScreen from "@/components/OverlayLoadingScreen.vue";
 import MoFooter from "@/components/MoFooter.vue";
+import AppLogos from "@/components/AppLogos.vue";
 
 const $bvModal = inject("$bvModal");
 const landing = useLanding();
@@ -57,15 +63,15 @@ const accountLogos = [
   },
 ];
 
-// const buyerLogo = computed(() => {
-//   const [buyer] = products.buyers.value;
-//   return buyer
-//     ? {
-//         src: buyer.imageUrl,
-//         alt: `logo ${buyer.name}`,
-//       }
-//     : {};
-// });
+const buyerLogo = computed(() => {
+  const [buyer] = products.buyers.value;
+  return buyer
+    ? {
+        src: buyer.imageUrl,
+        alt: `logo ${buyer.name}`,
+      }
+    : {};
+});
 
 const sendLead = async (data = {}) => {
   const { successURL } = landing.params.get();

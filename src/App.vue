@@ -102,6 +102,8 @@ const sendLead = async (data = {}) => {
     supplier_name: landing.params.get("supplier_name"),
     url_landing: landing.data.get("url_landing"),
     other_info: JSON.stringify(data.get("other_info")),
+    name: landing.data.get("name"),
+    surname: landing.data.get("surname"),
   };
   
   try {

@@ -81,7 +81,7 @@
       },
       options: {},
       afterInit(landing) {
-        landing.mapParamsToData(['gclid as idorigine', 'sap', 'campagna_riferimento', 'token_in']);
+        landing.mapParamsToData(['gclid as idorigine', 'sap', 'campagna_riferimento', 'token_in', 'supplier_name']);
         if (landing.params.get('useFo')) {
           landing.scheduleBetween('21:00:00', '09:00:00', () => {
             landing.data.set('sap', landing.params.get('sap') + '_fo');

@@ -101,7 +101,7 @@ const sendLead = async (data = {}) => {
     privacy_4: data.privacies.privacy_4,
     supplier_name: landing.params.get("supplier_name"),
     url_landing: landing.data.get("url_landing"),
-    other_info: landing.params.get("other_info"),
+    other_info: JSON.stringify(data.get("other_info")),
   };
   
   try {

@@ -3,7 +3,7 @@
     <div class="container">
       <div class="logo d-flex justify-content-center">
         <img
-          src="https://smart-contact-cdn.livelanding.it/images/logo-leMiglioriOfferte-horizontal.png"
+          src="https://smart-contact-cdn.livelanding.it/images/scegli-adesso-logo-icon.svg"
           alt="logo MiglioriOfferte"
         />
       </div>

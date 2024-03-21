@@ -39,6 +39,8 @@
             logoAccount: { value: '{{ accountLogo }}', default: '' },
             logoAccountMobile: { value: '{{ accountLogoMobile }}', default: '' },
             token_in: '{{ token_in }}',
+            useCtc: { value: '{{ useCtc }}', default: '1', parser: value => !!Number(value) },
+            ctcNumber: { value: '{{ ctcNumber }}', default: '3333333333' },
 
             //copy
             copyTitle: `{{ copyTitle }}`,
@@ -70,6 +72,7 @@
             name: '-',
             surname: '-',
             offer: '-',
+            other_info: '-',
           }
         },
 

@@ -101,7 +101,7 @@ const sendLead = async (data = {}) => {
     privacy_4: data.privacies.privacy_4,
     supplier_name: landing.params.get("supplier_name"),
     url_landing: landing.data.get("url_landing"),
-    other_info: JSON.stringify(data.get("other_info")),
+    other_info: JSON.stringify(data.other_info),
     name: landing.data.get("name"),
     surname: landing.data.get("surname"),
   };
@@ -126,6 +126,18 @@ const sendLead = async (data = {}) => {
     console.log(err);
   }
 };
+
+const reportConversion = function () {
+  if (window.dataLayer) {
+    window.dataLayer.push({
+      event: "ctc_conversion",
+      eventCategory: "form",
+      eventAction: "submit_ok",
+      eventLabel: "ctc landing",
+    });
+  }
+};
+
 
 const onProductSelected = (productIndex) => {
   products.setSelectedIndex(productIndex);
@@ -158,6 +170,7 @@ provide("isDesk", breakpoints.greater("md"));
 provide("params", landing.params.get());
 provide("onProductSelected", onProductSelected);
 provide("sendLead", sendLead);
+provide("reportConversion", reportConversion);
 </script>
 
 <style lang="scss">
